@@ -7,24 +7,14 @@
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-dist/
-build/
-.eggs/
 .venv/
 venv/
 env/
-pip-wheel-metadata/
-*.whl
 
 # IDE
 .vscode/
 .idea/
 *.swp
-*.swo
 *~
 
 # OS
@@ -32,16 +22,6 @@ pip-wheel-metadata/
 Thumbs.db
 desktop.ini
 
-# Data files (keep samples, ignore bulk loads)
-data/raw/*.xls
-data/raw/*.xlsx
-data/raw/*.csv
-!data/raw/.gitkeep
-data/processed/
-logs/
-
-# Test artifacts
-.pytest_cache/
-.coverage
-htmlcov/
+# Logs
 *.log
+logs/

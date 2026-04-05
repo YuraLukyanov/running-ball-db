@@ -1,7 +1,10 @@
 # running-ball-db
 
-Production PostgreSQL schema and data ingestion pipeline for **sports match statistics**.
+Versioned PostgreSQL schema management for the **sports match statistics** platform.
 Target: **Amazon RDS PostgreSQL 15+**
+
+> Data ingestion and transformation scripts live in the companion repository:
+> [`running-ball-export-transformer`](https://github.com/YuraLukyanov/running-ball-export-transformer)
 
 ---
 
@@ -9,65 +12,50 @@ Target: **Amazon RDS PostgreSQL 15+**
 
 ```
 running-ball-db/
-├── migrations/              # Versioned DDL scripts (applied in order)
+├── migrations/                  # Versioned DDL scripts (applied in order)
 │   ├── V001__baseline_schema.sql
 │   ├── V002__indexes.sql
 │   └── V003__materialized_views.sql
-├── seeds/                   # Reference / lookup data
+├── seeds/                       # Static reference / lookup data
 │   ├── S001__stat_types.sql
 │   └── S002__event_types.sql
-├── scripts/                 # Tooling
-│   ├── ingest.py            # CSV/XLS → RDS bulk ingestion
-│   └── refresh_views.py     # Refresh materialized views
-├── data/
-│   └── raw/                 # Drop input files here (.csv / .xls / .xlsx)
-├── tests/
-│   └── test_ingest.py
-├── docs/
-│   └── schema_diagram.md
-├── .env.example             # Connection string template
-├── requirements.txt
-└── README.md
+├── scripts/
+│   └── migrate.py               # Migration runner (Flyway-style)
+└── docs/
+    └── schema_diagram.md
 ```
 
 ---
 
 ## Quick Start
 
-### 1. Clone & install dependencies
+### 1. Install dependencies
 
 ```bash
-git clone <repo-url>
-cd running-ball-db
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install sqlalchemy psycopg2-binary python-dotenv click
 ```
 
 ### 2. Configure connection
 
 ```bash
 cp .env.example .env
-# Edit .env with your RDS credentials
+# Edit .env — set DB_URL to your RDS connection string
 ```
 
 ### 3. Apply migrations
 
 ```bash
+# Apply DDL migrations only
 python scripts/migrate.py
+
+# Apply DDL + seed reference data
+python scripts/migrate.py --seeds
 ```
 
-### 4. Run ingestion
+### 4. Dry run (print SQL without executing)
 
 ```bash
-# Single file
-python scripts/ingest.py --file data/raw/match_2273387.xls
-
-# All files in a directory
-python scripts/ingest.py --dir data/raw/
-
-# Dry run (prints SQL, no DB writes)
-python scripts/ingest.py --dir data/raw/ --dry-run
+python scripts/migrate.py --dry-run
 ```
 
 ---
@@ -75,32 +63,43 @@ python scripts/ingest.py --dir data/raw/ --dry-run
 ## Migration Versioning
 
 Migrations follow **Flyway-style naming**: `V{version}__{description}.sql`
-Applied in version order; each migration is checksummed and tracked in the
-`schema_migrations` table (auto-created on first run).
+
+- Applied in strict version order
+- Each migration is checksummed and tracked in `schema_migrations` table (auto-created on first run)
+- Re-running is fully idempotent — already-applied migrations are skipped
+
+**Adding a new migration:**
+
+```bash
+# Create the next version file
+touch migrations/V004__add_player_stats.sql
+# Edit it, then apply:
+python scripts/migrate.py
+```
 
 ---
 
 ## Schema Summary
 
-| Table                | Purpose                                         |
-|----------------------|-------------------------------------------------|
-| `countries`          | Country reference (ISO codes)                   |
-| `competitions`       | Leagues / tournaments                           |
-| `teams`              | Team master data                                |
-| `matches`            | Fixture metadata & final scores                 |
-| `statistic_types`    | EAV catalog of all stat metrics                 |
-| `match_statistics`   | Per-team, per-period stat values (EAV)          |
-| `event_types`        | Event code catalog (from feed provider)         |
-| `match_events`       | Append-only match timeline                      |
-| `match_periods`      | Half/period start–end times                     |
+| Table                | Purpose                                           |
+|----------------------|---------------------------------------------------|
+| `countries`          | Country reference (ISO codes)                     |
+| `competitions`       | Leagues / tournaments per country & season        |
+| `teams`              | Team master data                                  |
+| `matches`            | Fixture metadata & scores                         |
+| `statistic_types`    | EAV catalog — all stat metrics (no hardcoded cols)|
+| `match_statistics`   | Per-team, per-period stat values (EAV)            |
+| `event_types`        | Event code catalog (from feed provider)           |
+| `match_events`       | Append-only match timeline                        |
+| `match_periods`      | Half/period start–end wall-clock times            |
+
+See [`docs/schema_diagram.md`](docs/schema_diagram.md) for the full ER diagram.
 
 ---
 
 ## Environment Variables
 
-| Variable              | Description                                        |
-|-----------------------|----------------------------------------------------|
-| `DB_URL`              | SQLAlchemy URL `postgresql://user:pw@host:5432/db` |
-| `DB_POOL_SIZE`        | Connection pool size (default: 5)                  |
-| `DB_BATCH_SIZE`       | Rows per bulk insert batch (default: 500)          |
-| `LOG_LEVEL`           | `DEBUG` / `INFO` / `WARNING` (default: `INFO`)     |
+| Variable       | Description                                           |
+|----------------|-------------------------------------------------------|
+| `DB_URL`       | `postgresql://user:password@rds-host:5432/sports_db`  |
+| `LOG_LEVEL`    | `DEBUG` / `INFO` / `WARNING` (default: `INFO`)        |
