@@ -17,7 +17,6 @@ running-ball-db/
 │   ├── V002__indexes.sql
 │   └── V003__materialized_views.sql
 ├── seeds/                       # Static reference / lookup data
-│   ├── S001__stat_types.sql
 │   └── S002__event_types.sql
 ├── scripts/
 │   └── migrate.py               # Migration runner (Flyway-style)
@@ -81,17 +80,15 @@ python scripts/migrate.py
 
 ## Schema Summary
 
-| Table                | Purpose                                           |
-|----------------------|---------------------------------------------------|
-| `countries`          | Country reference (ISO codes)                     |
-| `competitions`       | Leagues / tournaments per country & season        |
-| `teams`              | Team master data                                  |
-| `matches`            | Fixture metadata & scores                         |
-| `statistic_types`    | EAV catalog — all stat metrics (no hardcoded cols)|
-| `match_statistics`   | Per-team, per-period stat values (EAV)            |
-| `event_types`        | Event code catalog (from feed provider)           |
-| `match_events`       | Append-only match timeline                        |
-| `match_periods`      | Half/period start–end wall-clock times            |
+| Table                | Purpose                                                       |
+|----------------------|---------------------------------------------------------------|
+| `countries`          | Country reference (ISO codes)                                 |
+| `competitions`       | Leagues / tournaments per country & season                    |
+| `teams`              | Team master data                                              |
+| `matches`            | Fixture metadata, scores, and all 20 match statistics stored as `home_<stat>` / `away_<stat>` columns |
+| `event_types`        | Event code catalog (from feed provider)                       |
+| `match_events`       | Append-only match timeline                                    |
+| `match_periods`      | Half/period start–end wall-clock times                        |
 
 See [`docs/schema_diagram.md`](docs/schema_diagram.md) for the full ER diagram.
 
