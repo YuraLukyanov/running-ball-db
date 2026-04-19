@@ -22,21 +22,25 @@ matches ◄──────────────────── home_tea
   kickoff_time
   status
   home_score / away_score
-      │
-      ├──────────────────────► match_statistics
-      │                          match_stat_id (PK)
-      │                          match_id (FK → matches)
-      │                          team_id (FK → teams)
-      │                          stat_type_id (FK → statistic_types)
-      │                          period
-      │                          stat_value
-      │                                │
-      │                                ▼
-      │                        statistic_types
-      │                          stat_type_id (PK)
-      │                          stat_code (UNIQUE)
-      │                          stat_label
-      │                          stat_category
+  home_corners / away_corners
+  home_yellow_cards / away_yellow_cards
+  home_yellow_red_cards / away_yellow_red_cards
+  home_red_cards / away_red_cards
+  home_penalties / away_penalties
+  home_free_kicks / away_free_kicks
+  home_dangerous_free_kicks / away_dangerous_free_kicks
+  home_fouls / away_fouls
+  home_offsides / away_offsides
+  home_shots_on_target / away_shots_on_target
+  home_shots_off_target / away_shots_off_target
+  home_shots_woodwork / away_shots_woodwork
+  home_shots_blocked / away_shots_blocked
+  home_goal_kicks / away_goal_kicks
+  home_throw_ins / away_throw_ins
+  home_attacks / away_attacks
+  home_dangerous_attacks / away_dangerous_attacks
+  home_breakaways / away_breakaways
+  home_substitutions / away_substitutions
       │
       ├──────────────────────► match_events
       │                          event_id (PK)
@@ -65,14 +69,9 @@ matches ◄──────────────────── home_tea
                                  stoppage_minutes
 ```
 
-## EAV Pattern (Statistics)
+## Match Statistics
 
-Rather than a wide table with 20+ fixed stat columns, statistics are stored as
-key-value pairs:
-
-```
-match_id=1, team_id=2, stat_type_id=3 ("corners"), period="full", stat_value=5
-match_id=1, team_id=2, stat_type_id=9 ("fouls"),   period="full", stat_value=12
-```
-
-New stat types are added via `INSERT INTO statistic_types` — no DDL changes needed.
+All 20 statistics are stored directly on the `matches` table as paired
+`home_<stat>` / `away_<stat>` columns (SMALLINT, nullable until the match
+produces data). This avoids the overhead of the EAV pattern and makes queries
+straightforward with no joins or pivots required.

@@ -53,8 +53,46 @@ CREATE TABLE IF NOT EXISTS matches (
     status            VARCHAR(20)   NOT NULL DEFAULT 'scheduled'
                           CHECK (status IN ('scheduled','live','half_time',
                                             'finished','cancelled','postponed')),
-    home_score        SMALLINT,
-    away_score        SMALLINT,
+    home_score                SMALLINT,
+    away_score                SMALLINT,
+    home_corners              SMALLINT,
+    away_corners              SMALLINT,
+    home_yellow_cards         SMALLINT,
+    away_yellow_cards         SMALLINT,
+    home_yellow_red_cards     SMALLINT,
+    away_yellow_red_cards     SMALLINT,
+    home_red_cards            SMALLINT,
+    away_red_cards            SMALLINT,
+    home_penalties            SMALLINT,
+    away_penalties            SMALLINT,
+    home_free_kicks           SMALLINT,
+    away_free_kicks           SMALLINT,
+    home_dangerous_free_kicks SMALLINT,
+    away_dangerous_free_kicks SMALLINT,
+    home_fouls                SMALLINT,
+    away_fouls                SMALLINT,
+    home_offsides             SMALLINT,
+    away_offsides             SMALLINT,
+    home_shots_on_target      SMALLINT,
+    away_shots_on_target      SMALLINT,
+    home_shots_off_target     SMALLINT,
+    away_shots_off_target     SMALLINT,
+    home_shots_woodwork       SMALLINT,
+    away_shots_woodwork       SMALLINT,
+    home_shots_blocked        SMALLINT,
+    away_shots_blocked        SMALLINT,
+    home_goal_kicks           SMALLINT,
+    away_goal_kicks           SMALLINT,
+    home_throw_ins            SMALLINT,
+    away_throw_ins            SMALLINT,
+    home_attacks              SMALLINT,
+    away_attacks              SMALLINT,
+    home_dangerous_attacks    SMALLINT,
+    away_dangerous_attacks    SMALLINT,
+    home_breakaways           SMALLINT,
+    away_breakaways           SMALLINT,
+    home_substitutions        SMALLINT,
+    away_substitutions        SMALLINT,
     attendance        INT,
     venue             VARCHAR(200),
     created_at        TIMESTAMPTZ   NOT NULL DEFAULT now(),
@@ -63,36 +101,7 @@ CREATE TABLE IF NOT EXISTS matches (
 );
 
 -- ---------------------------------------------------------------------------
--- 5. STATISTIC TYPES
--- ---------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS statistic_types (
-    stat_type_id   SERIAL        PRIMARY KEY,
-    stat_code      VARCHAR(50)   NOT NULL UNIQUE,
-    stat_label     VARCHAR(200)  NOT NULL,
-    stat_category  VARCHAR(50),
-    data_type      VARCHAR(20)   NOT NULL DEFAULT 'integer'
-                       CHECK (data_type IN ('integer','decimal','percentage','boolean','text')),
-    description    TEXT,
-    created_at     TIMESTAMPTZ   NOT NULL DEFAULT now()
-);
-
--- ---------------------------------------------------------------------------
--- 6. MATCH STATISTICS  (EAV)
--- ---------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS match_statistics (
-    match_stat_id  BIGSERIAL     PRIMARY KEY,
-    match_id       BIGINT        NOT NULL REFERENCES matches(match_id),
-    team_id        INT           NOT NULL REFERENCES teams(team_id),
-    stat_type_id   INT           NOT NULL REFERENCES statistic_types(stat_type_id),
-    period         VARCHAR(10)   NOT NULL DEFAULT 'full'
-                       CHECK (period IN ('full','1h','2h','et1','et2','pen')),
-    stat_value     NUMERIC(12,4) NOT NULL,
-    created_at     TIMESTAMPTZ   NOT NULL DEFAULT now(),
-    UNIQUE (match_id, team_id, stat_type_id, period)
-);
-
--- ---------------------------------------------------------------------------
--- 7. EVENT TYPES
+-- 5. EVENT TYPES
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS event_types (
     event_type_id    SERIAL        PRIMARY KEY,
@@ -105,7 +114,7 @@ CREATE TABLE IF NOT EXISTS event_types (
 );
 
 -- ---------------------------------------------------------------------------
--- 8. MATCH EVENTS  (timeline)
+-- 6. MATCH EVENTS  (timeline)
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS match_events (
     event_id       BIGSERIAL     PRIMARY KEY,
@@ -122,7 +131,7 @@ CREATE TABLE IF NOT EXISTS match_events (
 );
 
 -- ---------------------------------------------------------------------------
--- 9. MATCH PERIODS
+-- 7. MATCH PERIODS
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS match_periods (
     match_period_id  BIGSERIAL    PRIMARY KEY,
