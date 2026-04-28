@@ -1,0 +1,1800 @@
+[
+  {
+    "event_code": 0,
+    "event_type_name": "Start 1st half (no team)",
+    "category": "Match flow",
+    "description": "Start of 1st half without specifying kick-off team.",
+    "python_detection": "detail == \"Start 1st half\"",
+    "examples": [
+      "Start 1st half"
+    ]
+  },
+  {
+    "event_code": 1,
+    "event_type_name": "Stop 1st half",
+    "category": "Match flow",
+    "description": "End of first half.",
+    "python_detection": "detail == \"Stop 1st half\"",
+    "examples": [
+      "Stop 1st half"
+    ]
+  },
+  {
+    "event_code": 3,
+    "event_type_name": "Stop 2nd half",
+    "category": "Match flow",
+    "description": "End of the second half (full time or extra time).",
+    "python_detection": "detail == \"Stop 2nd half\"",
+    "examples": [
+      "Stop 2nd half"
+    ]
+  },
+  {
+    "event_code": 10,
+    "event_type_name": "Start 1st half (home kickoff)",
+    "category": "Match flow",
+    "description": "Kick-off of 1st half; home team takes the opening kick-off.",
+    "python_detection": "detail.startswith(\"Start 1st half, kickoff:\") and home_team in detail",
+    "examples": [
+      "Start 1st half, kickoff:   Al Ahli SC (Doha)",
+      "Start 1st half, kickoff:   Al Arabi SC (Qatar)",
+      "Start 1st half, kickoff:   Al Duhail SC",
+      "Start 1st half, kickoff:   Al Gharafa SC",
+      "Start 1st half, kickoff:   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 11,
+    "event_type_name": "Start 1st half (away kickoff)",
+    "category": "Match flow",
+    "description": "Kick-off of 1st half; away team takes the opening kick-off.",
+    "python_detection": "detail.startswith(\"Start 1st half, kickoff:\") and away_team in detail",
+    "examples": [
+      "Start 1st half, kickoff:   Al Ahli SC (Doha)",
+      "Start 1st half, kickoff:   Al Arabi SC (Qatar)",
+      "Start 1st half, kickoff:   Al Duhail SC",
+      "Start 1st half, kickoff:   Al Gharafa SC",
+      "Start 1st half, kickoff:   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 12,
+    "event_type_name": "Start 2nd half (home kickoff)",
+    "category": "Match flow",
+    "description": "Kick-off of 2nd half; home team takes the kick-off.",
+    "python_detection": "detail.startswith(\"Start 2nd half, kickoff:\") and home_team in detail",
+    "examples": [
+      "Start 2nd half, kickoff:   Al Ahli SC (Doha)",
+      "Start 2nd half, kickoff:   Al Arabi SC (Qatar)",
+      "Start 2nd half, kickoff:   Al Duhail SC",
+      "Start 2nd half, kickoff:   Al Gharafa SC",
+      "Start 2nd half, kickoff:   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 13,
+    "event_type_name": "Start 2nd half (away kickoff)",
+    "category": "Match flow",
+    "description": "Kick-off of 2nd half; away team takes the kick-off.",
+    "python_detection": "detail.startswith(\"Start 2nd half, kickoff:\") and away_team in detail",
+    "examples": [
+      "Start 2nd half, kickoff:   Al Ahli SC (Doha)",
+      "Start 2nd half, kickoff:   Al Arabi SC (Qatar)",
+      "Start 2nd half, kickoff:   Al Duhail SC",
+      "Start 2nd half, kickoff:   Al Gharafa SC",
+      "Start 2nd half, kickoff:   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 129,
+    "event_type_name": "Danger",
+    "category": "Danger signals",
+    "description": "Unspecified danger signal.",
+    "python_detection": "detail == \"Danger\"",
+    "examples": [
+      "Danger"
+    ]
+  },
+  {
+    "event_code": 132,
+    "event_type_name": "Game suspended (injury)",
+    "category": "Match flow",
+    "description": "Match temporarily suspended due to player injury.",
+    "python_detection": "detail == \"Game suspended - Player injured\"",
+    "examples": [
+      "Game suspended - Player injured"
+    ]
+  },
+  {
+    "event_code": 133,
+    "event_type_name": "Players coming out",
+    "category": "Match flow",
+    "description": "Teams walking out onto the pitch.",
+    "python_detection": "detail == \"Players are coming out\"",
+    "examples": [
+      "Players are coming out"
+    ]
+  },
+  {
+    "event_code": 134,
+    "event_type_name": "Players lined up",
+    "category": "Match flow",
+    "description": "Players lined up before kick-off.",
+    "python_detection": "detail == \"Players lined up\"",
+    "examples": [
+      "Players lined up"
+    ]
+  },
+  {
+    "event_code": 136,
+    "event_type_name": "Shake hands",
+    "category": "Match flow",
+    "description": "Pre-match handshake ceremony.",
+    "python_detection": "detail == \"Shake hands\"",
+    "examples": [
+      "Shake hands"
+    ]
+  },
+  {
+    "event_code": 137,
+    "event_type_name": "Coin flipping",
+    "category": "Match flow",
+    "description": "Coin toss event.",
+    "python_detection": "detail == \"Coin flipping\"",
+    "examples": [
+      "Coin flipping"
+    ]
+  },
+  {
+    "event_code": 138,
+    "event_type_name": "Minute of silence",
+    "category": "Match flow",
+    "description": "Pre-match or in-match minute of silence.",
+    "python_detection": "detail == \"Minute of silence\"",
+    "examples": [
+      "Minute of silence"
+    ]
+  },
+  {
+    "event_code": 139,
+    "event_type_name": "Prize giving ceremony",
+    "category": "Match flow",
+    "description": "Post-match prize/award ceremony.",
+    "python_detection": "detail == \"Prize giving ceremony\"",
+    "examples": [
+      "Prize giving ceremony"
+    ]
+  },
+  {
+    "event_code": 140,
+    "event_type_name": "Photo taking",
+    "category": "Match flow",
+    "description": "Operator photo capture (internal tracking).",
+    "python_detection": "detail == \"Photo taking\"",
+    "examples": [
+      "Photo taking"
+    ]
+  },
+  {
+    "event_code": 141,
+    "event_type_name": "Game about to start",
+    "category": "Match flow",
+    "description": "Imminent kick-off warning signal.",
+    "python_detection": "detail == \"Game about to start\"",
+    "examples": [
+      "Game about to start"
+    ]
+  },
+  {
+    "event_code": 142,
+    "event_type_name": "Missed",
+    "category": "Penalty",
+    "description": "General missed penalty/shot event.",
+    "python_detection": "detail == \"Missed\"",
+    "examples": [
+      "Missed"
+    ]
+  },
+  {
+    "event_code": 143,
+    "event_type_name": "Possible RC",
+    "category": "Disciplinary",
+    "description": "Possible red card situation being assessed.",
+    "python_detection": "detail == \"Possible RC\"",
+    "examples": [
+      "Possible RC"
+    ]
+  },
+  {
+    "event_code": 144,
+    "event_type_name": "Possible PEN",
+    "category": "Penalty",
+    "description": "General possible penalty situation (no team specified).",
+    "python_detection": "detail == \"Possible PEN\"",
+    "examples": [
+      "Possible PEN"
+    ]
+  },
+  {
+    "event_code": 145,
+    "event_type_name": "No RC",
+    "category": "Disciplinary",
+    "description": "No red card issued after review.",
+    "python_detection": "detail == \"No RC\"",
+    "examples": [
+      "No RC"
+    ]
+  },
+  {
+    "event_code": 146,
+    "event_type_name": "No PEN",
+    "category": "Penalty",
+    "description": "No penalty awarded after review.",
+    "python_detection": "detail == \"No PEN\"",
+    "examples": [
+      "No PEN"
+    ]
+  },
+  {
+    "event_code": 148,
+    "event_type_name": "Restart",
+    "category": "Match flow",
+    "description": "Ball back in play after a stoppage.",
+    "python_detection": "detail == \"Restart\"",
+    "examples": [
+      "Restart"
+    ]
+  },
+  {
+    "event_code": 149,
+    "event_type_name": "Game suspended (generic)",
+    "category": "Match flow",
+    "description": "Match temporarily suspended (no specific reason).",
+    "python_detection": "detail == \"Game suspended\"",
+    "examples": [
+      "Game suspended"
+    ]
+  },
+  {
+    "event_code": 187,
+    "event_type_name": "Goal under investigation",
+    "category": "Goals",
+    "description": "Scored goal under investigation / pending review.",
+    "python_detection": "detail == \"Goal under investigation\"",
+    "examples": [
+      "Goal under investigation"
+    ]
+  },
+  {
+    "event_code": 197,
+    "event_type_name": "Updating score",
+    "category": "Data update",
+    "description": "Score update in progress.",
+    "python_detection": "detail == \"Updating score\"",
+    "examples": [
+      "Updating score"
+    ]
+  },
+  {
+    "event_code": 198,
+    "event_type_name": "Score updated",
+    "category": "Data update",
+    "description": "Score officially updated.",
+    "python_detection": "detail == \"Score updated\"",
+    "examples": [
+      "Score updated"
+    ]
+  },
+  {
+    "event_code": 207,
+    "event_type_name": "Possible FK",
+    "category": "Set pieces",
+    "description": "Possible free kick (no team specified).",
+    "python_detection": "detail == \"Possible FK\"",
+    "examples": [
+      "Possible FK"
+    ]
+  },
+  {
+    "event_code": 208,
+    "event_type_name": "No FK",
+    "category": "Set pieces",
+    "description": "Possible free kick reviewed and not awarded.",
+    "python_detection": "detail == \"No FK\"",
+    "examples": [
+      "No FK"
+    ]
+  },
+  {
+    "event_code": 209,
+    "event_type_name": "Drop ball",
+    "category": "Match flow",
+    "description": "Referee drop ball restart.",
+    "python_detection": "detail == \"Drop Ball\"",
+    "examples": [
+      "Drop Ball"
+    ]
+  },
+  {
+    "event_code": 216,
+    "event_type_name": "Statistic confirmation",
+    "category": "Data update",
+    "description": "Match statistics confirmed by operator.",
+    "python_detection": "detail == \"Statistic confirmation\"",
+    "examples": [
+      "Statistic confirmation"
+    ]
+  },
+  {
+    "event_code": 220,
+    "event_type_name": "Close market",
+    "category": "Trading",
+    "description": "Betting/trading market closed for this match.",
+    "python_detection": "detail == \"Close Market\"",
+    "examples": [
+      "Close Market"
+    ]
+  },
+  {
+    "event_code": 221,
+    "event_type_name": "Open market",
+    "category": "Trading",
+    "description": "Betting/trading market opened for this match.",
+    "python_detection": "detail == \"Open Market\"",
+    "examples": [
+      "Open Market"
+    ]
+  },
+  {
+    "event_code": 226,
+    "event_type_name": "Possible card",
+    "category": "Disciplinary",
+    "description": "Possible disciplinary card being assessed.",
+    "python_detection": "detail == \"Possible card\"",
+    "examples": [
+      "Possible card"
+    ]
+  },
+  {
+    "event_code": 227,
+    "event_type_name": "No card",
+    "category": "Disciplinary",
+    "description": "No card issued after review.",
+    "python_detection": "detail == \"No card\"",
+    "examples": [
+      "No card"
+    ]
+  },
+  {
+    "event_code": 228,
+    "event_type_name": "Possible TI",
+    "category": "Set pieces",
+    "description": "Possible throw-in (no team specified).",
+    "python_detection": "detail == \"Possible TI\"",
+    "examples": [
+      "Possible TI"
+    ]
+  },
+  {
+    "event_code": 229,
+    "event_type_name": "No TI",
+    "category": "Set pieces",
+    "description": "Possible throw-in not awarded.",
+    "python_detection": "detail == \"No TI\"",
+    "examples": [
+      "No TI"
+    ]
+  },
+  {
+    "event_code": 258,
+    "event_type_name": "Game conditions changed",
+    "category": "Match flow",
+    "description": "Change in match conditions (e.g. weather, pitch).",
+    "python_detection": "detail == \"Game conditions changed\"",
+    "examples": [
+      "Game conditions changed"
+    ]
+  },
+  {
+    "event_code": 260,
+    "event_type_name": "Stoppage time",
+    "category": "Match flow",
+    "description": "Stoppage time announced by referee.",
+    "python_detection": "detail.startswith(\"Stoppage time:\")",
+    "examples": [
+      "Stoppage time: 1'",
+      "Stoppage time: 10'",
+      "Stoppage time: 11'",
+      "Stoppage time: 12'",
+      "Stoppage time: 2'"
+    ]
+  },
+  {
+    "event_code": 261,
+    "event_type_name": "Event details changed",
+    "category": "Data update",
+    "description": "Details of a previously recorded event updated.",
+    "python_detection": "detail.startswith(\"Event details for\")",
+    "examples": [
+      "Event details for Goal in the 1. minute changed",
+      "Event details for Goal in the 10. minute changed",
+      "Event details for Goal in the 100. minute changed",
+      "Event details for Goal in the 104. minute changed",
+      "Event details for Goal in the 11. minute changed"
+    ]
+  },
+  {
+    "event_code": 266,
+    "event_type_name": "Yellow card time adjusted",
+    "category": "Data update",
+    "description": "Yellow card timestamp corrected.",
+    "python_detection": "re.search(r\"Yellow card time was adjusted\", detail)",
+    "examples": [
+      "Corner time was adjusted to 28:44,00.",
+      "Corner time was adjusted to 59:55,00.",
+      "Corner time was adjusted to 80:23,00.",
+      "Corner time was adjusted to 85:14,00.",
+      "Goal time was adjusted to 37:47,00."
+    ]
+  },
+  {
+    "event_code": 278,
+    "event_type_name": "Game clock adjustment",
+    "category": "Match flow",
+    "description": "Match clock adjusted; offset duration may be included.",
+    "python_detection": "detail.startswith(\"Game clock adjustment\")",
+    "examples": [
+      "Game clock adjustment",
+      "Game clock adjustment   (00:02)",
+      "Game clock adjustment   (00:03)",
+      "Game clock adjustment   (00:05)",
+      "Game clock adjustment   (00:06)"
+    ]
+  },
+  {
+    "event_code": 280,
+    "event_type_name": "Score last period confirmed",
+    "category": "Match flow",
+    "description": "Score at end of the last period confirmed.",
+    "python_detection": "detail == \"Score of last period confirmed\"",
+    "examples": [
+      "Score of last period confirmed"
+    ]
+  },
+  {
+    "event_code": 283,
+    "event_type_name": "Substitution details changed",
+    "category": "Substitution",
+    "description": "Substitution player details corrected or confirmed.",
+    "python_detection": "detail.startswith(\"Substitution details for\")",
+    "examples": [
+      "Substitution details for Substitution in the 100. minute changed - Umm Salal SC  - Player in: 18 - Abdullah Khaled Sheikh, Player out: 8 - Adel Al Sulimane [Player confirmed]",
+      "Substitution details for Substitution in the 16. minute changed - Al Wakrah SC  - Player in: 34 - Nabil Erfan, Player out: 28 - Yousef El Khatib [Player confirmed]",
+      "Substitution details for Substitution in the 25. minute changed - Al Gharafa SC  - Player in: 2 - Abdalla Yousif, Player out: 11 - Amro Surag [Player confirmed]",
+      "Substitution details for Substitution in the 32. minute changed - Al Shamal SC  - Player in: 47 - Fahad Waad, Player out: 67 - Jassim Ali Al Hashemi [Player confirmed]",
+      "Substitution details for Substitution in the 33. minute changed - Qatar SC  - Player in: 27 - Youssef Mohamed Ali, Player out: 5 - R. Danzabe [Player confirmed]"
+    ]
+  },
+  {
+    "event_code": 285,
+    "event_type_name": "Player data confirmed",
+    "category": "Data update",
+    "description": "Player identity for a prior event confirmed.",
+    "python_detection": "detail.startswith(\"Player data for\")",
+    "examples": [
+      "Player data for Goal in the 1. minute confirmed.",
+      "Player data for Goal in the 10. minute confirmed.",
+      "Player data for Goal in the 100. minute confirmed.",
+      "Player data for Goal in the 101. minute confirmed.",
+      "Player data for Goal in the 104. minute confirmed."
+    ]
+  },
+  {
+    "event_code": 515,
+    "event_type_name": "Scout offline",
+    "category": "Operations",
+    "description": "Match scout/operator has gone offline.",
+    "python_detection": "detail == \"Scout offline\"",
+    "examples": [
+      "Scout offline"
+    ]
+  },
+  {
+    "event_code": 520,
+    "event_type_name": "Lineup changed",
+    "category": "Data update",
+    "description": "Team lineup updated.",
+    "python_detection": "detail == \"Lineup changed\"",
+    "examples": [
+      "Lineup changed"
+    ]
+  },
+  {
+    "event_code": 524,
+    "event_type_name": "Jersey colours updated",
+    "category": "Data update",
+    "description": "Team jersey colour information updated.",
+    "python_detection": "detail == \"Jersey colours updated\"",
+    "examples": [
+      "Jersey colours updated"
+    ]
+  },
+  {
+    "event_code": 533,
+    "event_type_name": "VAR start",
+    "category": "VAR",
+    "description": "VAR review process started.",
+    "python_detection": "detail == \"VAR Start\"",
+    "examples": [
+      "VAR Start"
+    ]
+  },
+  {
+    "event_code": 534,
+    "event_type_name": "No VAR",
+    "category": "VAR",
+    "description": "No VAR intervention applied.",
+    "python_detection": "detail == \"No VAR\"",
+    "examples": [
+      "No VAR"
+    ]
+  },
+  {
+    "event_code": 535,
+    "event_type_name": "VAR event",
+    "category": "VAR",
+    "description": "VAR event confirmed; includes type (Penalty, Unknown).",
+    "python_detection": "detail.startswith(\"VAR Event:\")",
+    "examples": [
+      "VAR Event: Card",
+      "VAR Event: Goal",
+      "VAR Event: Penalty",
+      "VAR Event: Unknown"
+    ]
+  },
+  {
+    "event_code": 536,
+    "event_type_name": "VAR stop",
+    "category": "VAR",
+    "description": "VAR review concluded.",
+    "python_detection": "detail == \"VAR Stop\"",
+    "examples": [
+      "VAR Stop"
+    ]
+  },
+  {
+    "event_code": 537,
+    "event_type_name": "Penalty about to be taken",
+    "category": "Penalty",
+    "description": "Penalty kick is imminent.",
+    "python_detection": "detail == \"Penalty about to be taken\"",
+    "examples": [
+      "Penalty about to be taken"
+    ]
+  },
+  {
+    "event_code": 540,
+    "event_type_name": "Possible VAR",
+    "category": "VAR",
+    "description": "Situation flagged for possible VAR review.",
+    "python_detection": "detail == \"Possible VAR\"",
+    "examples": [
+      "Possible VAR"
+    ]
+  },
+  {
+    "event_code": 541,
+    "event_type_name": "Possible VAR event",
+    "category": "VAR",
+    "description": "Specific possible VAR event type identified.",
+    "python_detection": "detail.startswith(\"Possible VAR Event:\")",
+    "examples": [
+      "Possible VAR Event: Card",
+      "Possible VAR Event: Goal",
+      "Possible VAR Event: Penalty",
+      "Possible VAR Event: Unknown"
+    ]
+  },
+  {
+    "event_code": 542,
+    "event_type_name": "VAR review cause",
+    "category": "VAR",
+    "description": "Reason for VAR review specified.",
+    "python_detection": "detail.startswith(\"VAR Review Cause:\")",
+    "examples": [
+      "VAR Review Cause: Foul",
+      "VAR Review Cause: Handball",
+      "VAR Review Cause: Offside",
+      "VAR Review Cause: Unknown"
+    ]
+  },
+  {
+    "event_code": 543,
+    "event_type_name": "Provisional Goal Confirmation",
+    "category": "Goals",
+    "description": "Goal provisionally confirmed pending full review.",
+    "python_detection": "detail == \"Provisional Goal Confirmation\"",
+    "examples": [
+      "Provisional Goal Confirmation"
+    ]
+  },
+  {
+    "event_code": 1024,
+    "event_type_name": "AT (home)",
+    "category": "Ball tracking",
+    "description": "Home team attack/possession.",
+    "python_detection": "detail.startswith(\"AT   \") and home_team in detail",
+    "examples": [
+      "AT   Al Ahli SC (Doha)",
+      "AT   Al Arabi SC (Qatar)",
+      "AT   Al Duhail SC",
+      "AT   Al Gharafa SC",
+      "AT   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1025,
+    "event_type_name": "CR (home)",
+    "category": "Set pieces",
+    "description": "Corner kick for home team; includes side (left/right).",
+    "python_detection": "detail.startswith(\"CR   \") and home_team in detail",
+    "examples": [
+      "CR   Al Ahli SC (Doha) (Corner - left side)",
+      "CR   Al Ahli SC (Doha) (Corner - right side)",
+      "CR   Al Arabi SC (Qatar) (Corner - left side)",
+      "CR   Al Arabi SC (Qatar) (Corner - right side)",
+      "CR   Al Duhail SC (Corner - left side)"
+    ]
+  },
+  {
+    "event_code": 1026,
+    "event_type_name": "DAT (home)",
+    "category": "Ball tracking",
+    "description": "Dangerous attack for home team.",
+    "python_detection": "detail.startswith(\"DAT   \") and home_team in detail",
+    "examples": [
+      "DAT   Al Ahli SC (Doha)",
+      "DAT   Al Arabi SC (Qatar)",
+      "DAT   Al Duhail SC",
+      "DAT   Al Gharafa SC",
+      "DAT   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1027,
+    "event_type_name": "DFK (home)",
+    "category": "Set pieces",
+    "description": "Dangerous free kick for home team.",
+    "python_detection": "detail.startswith(\"DFK   \") and home_team in detail",
+    "examples": [
+      "DFK   Al Ahli SC (Doha)",
+      "DFK   Al Arabi SC (Qatar)",
+      "DFK   Al Duhail SC",
+      "DFK   Al Gharafa SC",
+      "DFK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1028,
+    "event_type_name": "FK (home)",
+    "category": "Set pieces",
+    "description": "Free kick for home team; includes zone and pitch location.",
+    "python_detection": "detail.startswith(\"FK   \") and home_team in detail",
+    "examples": [
+      "FK   Al Ahli SC (Doha) (Zone 2 - FK facing goal), Zone B2 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 2 - FK facing goal), Zone B3 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone A1 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone A4 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone B1 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 1029,
+    "event_type_name": "Goal (home)",
+    "category": "Goals",
+    "description": "Confirmed goal for home team with scorer, method and zone.",
+    "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Goal\\s+\", detail) and home_team in detail",
+    "examples": [
+      "[1 : 0]   Goal   Al Ahli SC (Doha) [confirmed] - 10 - N. Sliti [Player confirmed] (shot), Zone A2 - Attacking half, Bottom center",
+      "[1 : 0]   Goal   Al Ahli SC (Doha) [confirmed] - 17 - S. Yansané [Player confirmed] (shot), Zone A3 - Attacking half, Bottom right",
+      "[1 : 0]   Goal   Al Ahli SC (Doha) [confirmed] - 7 - J. Draxler [Player confirmed] (shot), Zone A3 - Attacking half, Unknown",
+      "[1 : 0]   Goal   Al Ahli SC (Doha) [confirmed] - 7 - J. Draxler [Player confirmed] (shot), Zone B2 - Attacking half, Bottom right",
+      "[1 : 0]   Goal   Al Ahli SC (Doha) [confirmed] - 9 - S. Yansané [Player confirmed] (penalty), Penalty spot, Bottom right"
+    ]
+  },
+  {
+    "event_code": 1030,
+    "event_type_name": "Cancel goal (home)",
+    "category": "Goals",
+    "description": "Previously recorded goal for home team cancelled.",
+    "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Cancel Goal\", detail) and home_team in detail",
+    "examples": [
+      "[0 : 0]   Cancel Goal   Al Duhail SC",
+      "[0 : 0]   Cancel Goal   Al Sadd SC",
+      "[0 : 0]   Cancel Goal   Al Shamal SC",
+      "[0 : 0]   Cancel Goal   Qatar SC",
+      "[0 : 1]   Cancel Goal   Al Ahli SC (Doha)"
+    ]
+  },
+  {
+    "event_code": 1031,
+    "event_type_name": "PEN (home)",
+    "category": "Penalty",
+    "description": "Penalty awarded to the home team; includes taker details.",
+    "python_detection": "detail.startswith(\"PEN   \") and home_team in detail",
+    "examples": [
+      "PEN   Al Ahli SC (Doha)",
+      "PEN   Al Ahli SC (Doha) - 17 - S. Yansané (penalty)",
+      "PEN   Al Arabi SC (Qatar)",
+      "PEN   Al Arabi SC (Qatar) - 10 - Rodri (penalty)",
+      "PEN   Al Arabi SC (Qatar) - 9 - Omar Al Somah (penalty)"
+    ]
+  },
+  {
+    "event_code": 1032,
+    "event_type_name": "RC (home)",
+    "category": "Disciplinary",
+    "description": "Red card for home team player; includes reason.",
+    "python_detection": "detail.startswith(\"RC   \") and home_team in detail",
+    "examples": [
+      "RC   Al Ahli SC (Doha) [confirmed] - 8 - I. Doumbia [Player confirmed] (assault) - Red card  time was adjusted to 49:11,00.",
+      "RC   Al Arabi SC (Qatar) [confirmed] - 28 - Y. Msakni [Player confirmed] (foul)",
+      "RC   Al Rayyan SC [confirmed] - 13 - André Amaro [Player confirmed] (foul)",
+      "RC   Al Shahaniya [confirmed] - 24 - Husam Hassunin El Said [Player confirmed] (foul)",
+      "RC   Al Shamal SC [confirmed] - 47 - Fahad Waad [Player confirmed] (foul)"
+    ]
+  },
+  {
+    "event_code": 1034,
+    "event_type_name": "YC (home)",
+    "category": "Disciplinary",
+    "description": "Yellow card for home team player; includes reason.",
+    "python_detection": "detail.startswith(\"YC   \") and home_team in detail",
+    "examples": [
+      "YC   Al Ahli SC (Doha) [confirmed] - 10 - Erik Expósito [Player confirmed] (foul) - Yellow card time was adjusted to 73:05,00.",
+      "YC   Al Ahli SC (Doha) [confirmed] - 16 - R. Tihi [Player confirmed] (foul)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 3 - Islam Yassine [Player confirmed] (foul)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 32 - Navid Mohammad Doozandeh [Player confirmed] (criticism)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 35 - Marwan Badreldin [Player confirmed] (unsportsmanlike conduct)"
+    ]
+  },
+  {
+    "event_code": 1039,
+    "event_type_name": "SH on target (home)",
+    "category": "Shots",
+    "description": "Shot on target by home team with pitch zone.",
+    "python_detection": "detail.startswith(\"SH (on target)   \") and home_team in detail",
+    "examples": [
+      "SH (on target)   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone B3 - Attacking half",
+      "SH (on target)   Al Arabi SC (Qatar), Zone A2 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 1040,
+    "event_type_name": "SH off target (home)",
+    "category": "Shots",
+    "description": "Shot off target by home team with pitch zone.",
+    "python_detection": "detail.startswith(\"SH (off target)   \") and home_team in detail",
+    "examples": [
+      "SH (off target)   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone B3 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone C2 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 1041,
+    "event_type_name": "SH woodwork (home)",
+    "category": "Shots",
+    "description": "Home team shot hits the woodwork; zone included.",
+    "python_detection": "detail.startswith(\"SH (woodwork)   \") and home_team in detail",
+    "examples": [
+      "SH (woodwork)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (woodwork)   Al Arabi SC (Qatar), Zone A2 - Attacking half",
+      "SH (woodwork)   Al Duhail SC, Zone A3 - Attacking half",
+      "SH (woodwork)   Al Duhail SC, Zone B3 - Attacking half",
+      "SH (woodwork)   Al Gharafa SC, Zone A2 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 1042,
+    "event_type_name": "Foul (home)",
+    "category": "Disciplinary",
+    "description": "Foul committed by home team.",
+    "python_detection": "detail.startswith(\"Foul   \") and home_team in detail",
+    "examples": [
+      "Foul   Al Ahli SC (Doha)",
+      "Foul   Al Arabi SC (Qatar)",
+      "Foul   Al Duhail SC",
+      "Foul   Al Gharafa SC",
+      "Foul   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1043,
+    "event_type_name": "Offside (home)",
+    "category": "Match flow",
+    "description": "Offside against home team.",
+    "python_detection": "detail.startswith(\"Offside   \") and home_team in detail",
+    "examples": [
+      "Offside   Al Ahli SC (Doha)",
+      "Offside   Al Arabi SC (Qatar)",
+      "Offside   Al Duhail SC",
+      "Offside   Al Gharafa SC",
+      "Offside   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1044,
+    "event_type_name": "Kickoff (home)",
+    "category": "Match flow",
+    "description": "Home team takes a kick-off.",
+    "python_detection": "detail.startswith(\"Kickoff   \") and home_team in detail",
+    "examples": [
+      "Kickoff   Al Ahli SC (Doha)",
+      "Kickoff   Al Arabi SC (Qatar)",
+      "Kickoff   Al Duhail SC",
+      "Kickoff   Al Gharafa SC",
+      "Kickoff   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1045,
+    "event_type_name": "YC/RC (home)",
+    "category": "Disciplinary",
+    "description": "Second yellow / yellow-red card for home team player.",
+    "python_detection": "detail.startswith(\"YC/RC   \") and home_team in detail",
+    "examples": [
+      "YC/RC   Al Arabi SC (Qatar) [confirmed] - 5 - Simo [Player confirmed] (foul)",
+      "YC/RC   Al Sadd SC [confirmed] - 7 - Mohammed Waad [Player confirmed] (foul)",
+      "YC/RC   Qatar SC [confirmed]"
+    ]
+  },
+  {
+    "event_code": 1046,
+    "event_type_name": "Cancel YC/RC (home)",
+    "category": "Disciplinary",
+    "description": "Yellow-red card for home team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel YC/RC   \") and home_team in detail",
+    "examples": [
+      "Cancel YC/RC   Qatar SC"
+    ]
+  },
+  {
+    "event_code": 1048,
+    "event_type_name": "Cancel YC (home)",
+    "category": "Disciplinary",
+    "description": "Yellow card for home team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel YC   \") and home_team in detail",
+    "examples": [
+      "Cancel YC   Al Ahli SC (Doha)",
+      "Cancel YC   Al Arabi SC (Qatar)",
+      "Cancel YC   Al Gharafa SC",
+      "Cancel YC   Al Shahaniya",
+      "Cancel YC   Al Shamal SC"
+    ]
+  },
+  {
+    "event_code": 1049,
+    "event_type_name": "Cancel PEN (home)",
+    "category": "Penalty",
+    "description": "Penalty for home team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel PEN   \") and home_team in detail",
+    "examples": [
+      "Cancel PEN   Al Sadd SC",
+      "Cancel PEN   Qatar SC",
+      "Cancel PEN   Umm Salal SC"
+    ]
+  },
+  {
+    "event_code": 1050,
+    "event_type_name": "Cancel CR (home)",
+    "category": "Set pieces",
+    "description": "Corner for home team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel CR   \") and home_team in detail",
+    "examples": [
+      "Cancel CR   Al Arabi SC (Qatar)",
+      "Cancel CR   Al Sadd SC"
+    ]
+  },
+  {
+    "event_code": 1051,
+    "event_type_name": "Safe (home)",
+    "category": "Ball tracking",
+    "description": "Ball in safe/non-threatening area for home team.",
+    "python_detection": "detail.startswith(\"Safe   \") and home_team in detail",
+    "examples": [
+      "Safe   Al Ahli SC (Doha)",
+      "Safe   Al Arabi SC (Qatar)",
+      "Safe   Al Duhail SC",
+      "Safe   Al Gharafa SC",
+      "Safe   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1052,
+    "event_type_name": "Danger (home)",
+    "category": "Danger signals",
+    "description": "General danger signal for home team.",
+    "python_detection": "detail.startswith(\"Danger   \") and home_team in detail",
+    "examples": [
+      "Danger   Al Ahli SC (Doha)",
+      "Danger   Al Arabi SC (Qatar)",
+      "Danger   Al Duhail SC",
+      "Danger   Al Gharafa SC",
+      "Danger   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1053,
+    "event_type_name": "GK (home)",
+    "category": "Set pieces",
+    "description": "Goal kick for home team.",
+    "python_detection": "detail.startswith(\"GK   \") and home_team in detail",
+    "examples": [
+      "GK   Al Ahli SC (Doha)",
+      "GK   Al Arabi SC (Qatar)",
+      "GK   Al Duhail SC",
+      "GK   Al Gharafa SC",
+      "GK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1054,
+    "event_type_name": "TI (home)",
+    "category": "Set pieces",
+    "description": "Throw-in for home team.",
+    "python_detection": "detail.startswith(\"TI   \") and home_team in detail",
+    "examples": [
+      "TI   Al Ahli SC (Doha)",
+      "TI   Al Arabi SC (Qatar)",
+      "TI   Al Duhail SC",
+      "TI   Al Gharafa SC",
+      "TI   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1055,
+    "event_type_name": "SUB confirmed (home)",
+    "category": "Substitution",
+    "description": "Confirmed home team substitution with player details.",
+    "python_detection": "detail.startswith(\"SUB   \") and home_team in detail",
+    "examples": [
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - Erik Expósito, Player out: 11 - Abdulrahman Fahmi Moustafa [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - Erik Expósito, Player out: 45 - Yousef Marei [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - N. Sliti, Player out: 22 - Al Doukali Al Sayed [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 11 - Abdulrahman Fahmi Moustafa, Player out: 10 - Erik Expósito [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 11 - Yazan Al Naimat, Player out: 22 - Al Doukali Al Sayed [Player confirmed]"
+    ]
+  },
+  {
+    "event_code": 1058,
+    "event_type_name": "BLOCK (home)",
+    "category": "Shots",
+    "description": "Shot blocked, home team; with pitch zone.",
+    "python_detection": "detail.startswith(\"BLOCK   \") and home_team in detail",
+    "examples": [
+      "BLOCK   Al Ahli SC (Doha), Zone A1 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone B3 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 1060,
+    "event_type_name": "PEN missed (home)",
+    "category": "Penalty",
+    "description": "Home team penalty kick missed.",
+    "python_detection": "detail.startswith(\"PEN missed   \") and home_team in detail",
+    "examples": [
+      "PEN missed   Al Ahli SC (Doha)",
+      "PEN missed   Al Arabi SC (Qatar)",
+      "PEN missed   Al Duhail SC",
+      "PEN missed   Al Rayyan SC",
+      "PEN missed   Al Sadd SC"
+    ]
+  },
+  {
+    "event_code": 1062,
+    "event_type_name": "Possible PEN (home)",
+    "category": "Penalty",
+    "description": "Potential penalty situation for home team.",
+    "python_detection": "detail.startswith(\"Possible PEN   \") and home_team in detail",
+    "examples": [
+      "Possible PEN   Al Ahli SC (Doha)",
+      "Possible PEN   Al Arabi SC (Qatar)",
+      "Possible PEN   Al Duhail SC",
+      "Possible PEN   Al Gharafa SC",
+      "Possible PEN   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1064,
+    "event_type_name": "BA (home)",
+    "category": "Ball tracking",
+    "description": "Breakaway/counter-attack for home team.",
+    "python_detection": "detail.startswith(\"BA   \") and home_team in detail",
+    "examples": [
+      "BA   Al Ahli SC (Doha)",
+      "BA   Al Duhail SC",
+      "BA   Al Gharafa SC",
+      "BA   Al Khor SC",
+      "BA   Al Markhiya"
+    ]
+  },
+  {
+    "event_code": 1065,
+    "event_type_name": "Goal Conf (home)",
+    "category": "Goals",
+    "description": "Goal confirmation signal for home team.",
+    "python_detection": "detail.startswith(\"Goal Conf   \") and home_team in detail",
+    "examples": [
+      "Goal Conf   Al Ahli SC (Doha)",
+      "Goal Conf   Al Arabi SC (Qatar)",
+      "Goal Conf   Al Duhail SC",
+      "Goal Conf   Al Gharafa SC",
+      "Goal Conf   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1066,
+    "event_type_name": "Possible CR (home)",
+    "category": "Set pieces",
+    "description": "Possible corner kick for home team.",
+    "python_detection": "detail.startswith(\"Possible CR   \") and home_team in detail",
+    "examples": [
+      "Possible CR   Al Ahli SC (Doha)",
+      "Possible CR   Al Arabi SC (Qatar)",
+      "Possible CR   Al Duhail SC",
+      "Possible CR   Al Gharafa SC",
+      "Possible CR   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1067,
+    "event_type_name": "No CR (home)",
+    "category": "Set pieces",
+    "description": "Possible corner for home team not awarded.",
+    "python_detection": "detail.startswith(\"No CR   \") and home_team in detail",
+    "examples": [
+      "No CR   Al Ahli SC (Doha)",
+      "No CR   Al Arabi SC (Qatar)",
+      "No CR   Al Duhail SC",
+      "No CR   Al Gharafa SC",
+      "No CR   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1068,
+    "event_type_name": "YC confirmed (home)",
+    "category": "Disciplinary",
+    "description": "Yellow card officially confirmed for home team.",
+    "python_detection": "detail.startswith(\"YC confirmed   \") and home_team in detail",
+    "examples": [
+      "YC confirmed   Al Ahli SC (Doha)",
+      "YC confirmed   Al Arabi SC (Qatar)",
+      "YC confirmed   Al Duhail SC",
+      "YC confirmed   Al Gharafa SC",
+      "YC confirmed   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1069,
+    "event_type_name": "YC/RC confirmed (home)",
+    "category": "Disciplinary",
+    "description": "Second yellow / yellow-red confirmed for home team.",
+    "python_detection": "detail.startswith(\"YC/RC confirmed   \") and home_team in detail",
+    "examples": [
+      "YC/RC confirmed   Al Arabi SC (Qatar)",
+      "YC/RC confirmed   Al Sadd SC",
+      "YC/RC confirmed   Qatar SC"
+    ]
+  },
+  {
+    "event_code": 1070,
+    "event_type_name": "RC confirmed (home)",
+    "category": "Disciplinary",
+    "description": "Red card officially confirmed for home team.",
+    "python_detection": "detail.startswith(\"RC confirmed   \") and home_team in detail",
+    "examples": [
+      "RC confirmed   Al Ahli SC (Doha)",
+      "RC confirmed   Al Arabi SC (Qatar)",
+      "RC confirmed   Al Rayyan SC",
+      "RC confirmed   Al Shahaniya",
+      "RC confirmed   Al Shamal SC"
+    ]
+  },
+  {
+    "event_code": 1071,
+    "event_type_name": "Possible FK (home)",
+    "category": "Set pieces",
+    "description": "Possible free kick for home team.",
+    "python_detection": "detail.startswith(\"Possible FK   \") and home_team in detail",
+    "examples": [
+      "Possible FK   Al Ahli SC (Doha)",
+      "Possible FK   Al Arabi SC (Qatar)",
+      "Possible FK   Al Duhail SC",
+      "Possible FK   Al Gharafa SC",
+      "Possible FK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1073,
+    "event_type_name": "Possible TI (home)",
+    "category": "Set pieces",
+    "description": "Possible throw-in for home team.",
+    "python_detection": "detail.startswith(\"Possible TI   \") and home_team in detail",
+    "examples": [
+      "Possible TI   Al Ahli SC (Doha)",
+      "Possible TI   Al Arabi SC (Qatar)",
+      "Possible TI   Al Duhail SC",
+      "Possible TI   Al Gharafa SC",
+      "Possible TI   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1074,
+    "event_type_name": "Safe directional (home)",
+    "category": "Ball tracking",
+    "description": "Ball in safe zone for home team with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Safe (Center|Left|Right)   \", detail) and home_team in detail",
+    "examples": [
+      "Safe Center   Al Ahli SC (Doha)",
+      "Safe Center   Al Arabi SC (Qatar)",
+      "Safe Center   Al Duhail SC",
+      "Safe Center   Al Gharafa SC",
+      "Safe Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1075,
+    "event_type_name": "Attack directional (home)",
+    "category": "Ball tracking",
+    "description": "Home team attack with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Attack (Center|Left|Right)   \", detail) and home_team in detail",
+    "examples": [
+      "Attack Center   Al Ahli SC (Doha)",
+      "Attack Center   Al Arabi SC (Qatar)",
+      "Attack Center   Al Duhail SC",
+      "Attack Center   Al Gharafa SC",
+      "Attack Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1076,
+    "event_type_name": "Danger directional (home)",
+    "category": "Danger signals",
+    "description": "Home team danger with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Danger (Center|Left|Right)   \", detail) and home_team in detail",
+    "examples": [
+      "Danger Center   Al Ahli SC (Doha)",
+      "Danger Center   Al Arabi SC (Qatar)",
+      "Danger Center   Al Duhail SC",
+      "Danger Center   Al Gharafa SC",
+      "Danger Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 1077,
+    "event_type_name": "Breakaway directional (home)",
+    "category": "Ball tracking",
+    "description": "Home team breakaway with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Breakaway (Center|Left|Right)   \", detail) and home_team in detail",
+    "examples": [
+      "Breakaway Center   Al Ahli SC (Doha)",
+      "Breakaway Center   Al Duhail SC",
+      "Breakaway Center   Al Gharafa SC",
+      "Breakaway Center   Al Khor SC",
+      "Breakaway Center   Al Markhiya"
+    ]
+  },
+  {
+    "event_code": 1080,
+    "event_type_name": "Player injured (home)",
+    "category": "Match flow",
+    "description": "Home team player injury notification.",
+    "python_detection": "detail.startswith(\"Player injured   \") and home_team in detail",
+    "examples": [
+      "Player injured   Al Ahli SC (Doha)",
+      "Player injured   Al Arabi SC (Qatar)",
+      "Player injured   Al Duhail SC",
+      "Player injured   Al Gharafa SC",
+      "Player injured   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2048,
+    "event_type_name": "AT (away)",
+    "category": "Ball tracking",
+    "description": "Away team attack/possession.",
+    "python_detection": "detail.startswith(\"AT   \") and away_team in detail",
+    "examples": [
+      "AT   Al Ahli SC (Doha)",
+      "AT   Al Arabi SC (Qatar)",
+      "AT   Al Duhail SC",
+      "AT   Al Gharafa SC",
+      "AT   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2049,
+    "event_type_name": "CR (away)",
+    "category": "Set pieces",
+    "description": "Corner kick for away team; includes side.",
+    "python_detection": "detail.startswith(\"CR   \") and away_team in detail",
+    "examples": [
+      "CR   Al Ahli SC (Doha)",
+      "CR   Al Ahli SC (Doha) (Corner - left side)",
+      "CR   Al Ahli SC (Doha) (Corner - right side)",
+      "CR   Al Ahli SC (Doha) - Corner time was adjusted to 28:44,00. (Corner - left side)",
+      "CR   Al Arabi SC (Qatar) (Corner - left side)"
+    ]
+  },
+  {
+    "event_code": 2050,
+    "event_type_name": "DAT (away)",
+    "category": "Ball tracking",
+    "description": "Dangerous attack for away team.",
+    "python_detection": "detail.startswith(\"DAT   \") and away_team in detail",
+    "examples": [
+      "DAT   Al Ahli SC (Doha)",
+      "DAT   Al Arabi SC (Qatar)",
+      "DAT   Al Duhail SC",
+      "DAT   Al Gharafa SC",
+      "DAT   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2051,
+    "event_type_name": "DFK (away)",
+    "category": "Set pieces",
+    "description": "Dangerous free kick for away team.",
+    "python_detection": "detail.startswith(\"DFK   \") and away_team in detail",
+    "examples": [
+      "DFK   Al Ahli SC (Doha)",
+      "DFK   Al Arabi SC (Qatar)",
+      "DFK   Al Duhail SC",
+      "DFK   Al Gharafa SC",
+      "DFK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2052,
+    "event_type_name": "FK (away)",
+    "category": "Set pieces",
+    "description": "Free kick for away team; includes zone and pitch location.",
+    "python_detection": "detail.startswith(\"FK   \") and away_team in detail",
+    "examples": [
+      "FK   Al Ahli SC (Doha) (Zone 2 - FK facing goal), Zone B2 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 2 - FK facing goal), Zone B3 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone A1 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone B1 - Attacking half",
+      "FK   Al Ahli SC (Doha) (Zone 3 - sides of penalty box), Zone B4 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2053,
+    "event_type_name": "Goal (away)",
+    "category": "Goals",
+    "description": "Confirmed goal for away team with scorer, method and zone.",
+    "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Goal\\s+\", detail) and away_team in detail",
+    "examples": [
+      "[0 : 1]   Goal   Al Ahli SC (Doha) [confirmed] - 10 - N. Sliti [Player confirmed] (shot), Zone A2 - Attacking half, Bottom left",
+      "[0 : 1]   Goal   Al Ahli SC (Doha) [confirmed] - 7 - J. Draxler [Player confirmed] (shot), Zone A3 - Attacking half, Bottom left",
+      "[0 : 1]   Goal   Al Ahli SC (Doha) [confirmed] - 7 - J. Draxler [Player confirmed] (shot), Zone A3 - Attacking half, Top left",
+      "[0 : 1]   Goal   Al Ahli SC (Doha) [confirmed] - 9 - A. Mance [Player confirmed] (own goal), Zone A3 - Attacking half, Bottom right",
+      "[0 : 1]   Goal   Al Ahli SC (Doha) [confirmed] - 9 - S. Yansané [Player confirmed] (shot), Unknown - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2054,
+    "event_type_name": "Cancel goal (away)",
+    "category": "Goals",
+    "description": "Previously recorded goal for away team cancelled.",
+    "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Cancel Goal\", detail) and away_team in detail",
+    "examples": [
+      "[0 : 0]   Cancel Goal   Al Duhail SC",
+      "[0 : 0]   Cancel Goal   Al Mu'aidar",
+      "[0 : 0]   Cancel Goal   Al Shamal SC",
+      "[0 : 0]   Cancel Goal   Al Wakrah SC",
+      "[0 : 0]   Cancel Goal   Umm Salal SC"
+    ]
+  },
+  {
+    "event_code": 2055,
+    "event_type_name": "PEN (away)",
+    "category": "Penalty",
+    "description": "Penalty awarded to away team; includes taker details.",
+    "python_detection": "detail.startswith(\"PEN   \") and away_team in detail",
+    "examples": [
+      "PEN   Al Ahli SC (Doha)",
+      "PEN   Al Arabi SC (Qatar)",
+      "PEN   Al Duhail SC",
+      "PEN   Al Gharafa SC",
+      "PEN   Al Mu'aidar - Penalty time was adjusted to 36:44,00."
+    ]
+  },
+  {
+    "event_code": 2056,
+    "event_type_name": "RC (away)",
+    "category": "Disciplinary",
+    "description": "Red card for away team player; includes reason.",
+    "python_detection": "detail.startswith(\"RC   \") and away_team in detail",
+    "examples": [
+      "RC   Al Duhail SC [confirmed] - 14 - M. Olunga [Player confirmed] (foul)",
+      "RC   Al Duhail SC [confirmed] - 2 - Mohammed Musa [Player confirmed] (foul)",
+      "RC   Al Duhail SC [confirmed] - Unknown (foul) - Red card  time was adjusted to 47:05,00.",
+      "RC   Al Khor SC [confirmed] - 4 - Khaled Radwan [Player confirmed] (foul)",
+      "RC   Al Rayyan SC [confirmed] - Unknown (foul) - Red card  time was adjusted to 73:20,00."
+    ]
+  },
+  {
+    "event_code": 2058,
+    "event_type_name": "YC (away)",
+    "category": "Disciplinary",
+    "description": "Yellow card for away team player; includes reason.",
+    "python_detection": "detail.startswith(\"YC   \") and away_team in detail",
+    "examples": [
+      "YC   Al Ahli SC (Doha) [confirmed] - 10 - N. Sliti [Player confirmed] (foul)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 12 - Ahmad Al Sebai [Player confirmed] (foul)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 15 - Mohammed Aiash [Player confirmed] (criticism)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 15 - Mohammed Aiash [Player confirmed] (foul)",
+      "YC   Al Ahli SC (Doha) [confirmed] - 16 - R. Tihi [Player confirmed] (foul)"
+    ]
+  },
+  {
+    "event_code": 2063,
+    "event_type_name": "SH on target (away)",
+    "category": "Shots",
+    "description": "Shot on target by away team with pitch zone.",
+    "python_detection": "detail.startswith(\"SH (on target)   \") and away_team in detail",
+    "examples": [
+      "SH (on target)   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone A4 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "SH (on target)   Al Ahli SC (Doha), Zone B3 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2064,
+    "event_type_name": "SH off target (away)",
+    "category": "Shots",
+    "description": "Shot off target by away team with pitch zone.",
+    "python_detection": "detail.startswith(\"SH (off target)   \") and away_team in detail",
+    "examples": [
+      "SH (off target)   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone B1 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "SH (off target)   Al Ahli SC (Doha), Zone B3 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2065,
+    "event_type_name": "SH woodwork (away)",
+    "category": "Shots",
+    "description": "Away team shot hits the woodwork; zone included.",
+    "python_detection": "detail.startswith(\"SH (woodwork)   \") and away_team in detail",
+    "examples": [
+      "SH (woodwork)   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "SH (woodwork)   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "SH (woodwork)   Al Arabi SC (Qatar), Zone A2 - Attacking half",
+      "SH (woodwork)   Al Duhail SC, Zone A3 - Attacking half",
+      "SH (woodwork)   Al Duhail SC, Zone B3 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2066,
+    "event_type_name": "Foul (away)",
+    "category": "Disciplinary",
+    "description": "Foul committed by away team.",
+    "python_detection": "detail.startswith(\"Foul   \") and away_team in detail",
+    "examples": [
+      "Foul   Al Ahli SC (Doha)",
+      "Foul   Al Arabi SC (Qatar)",
+      "Foul   Al Duhail SC",
+      "Foul   Al Gharafa SC",
+      "Foul   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2067,
+    "event_type_name": "Offside (away)",
+    "category": "Match flow",
+    "description": "Offside against away team.",
+    "python_detection": "detail.startswith(\"Offside   \") and away_team in detail",
+    "examples": [
+      "Offside   Al Ahli SC (Doha)",
+      "Offside   Al Arabi SC (Qatar)",
+      "Offside   Al Duhail SC",
+      "Offside   Al Gharafa SC",
+      "Offside   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2068,
+    "event_type_name": "Kickoff (away)",
+    "category": "Match flow",
+    "description": "Away team takes a kick-off.",
+    "python_detection": "detail.startswith(\"Kickoff   \") and away_team in detail",
+    "examples": [
+      "Kickoff   Al Ahli SC (Doha)",
+      "Kickoff   Al Arabi SC (Qatar)",
+      "Kickoff   Al Duhail SC",
+      "Kickoff   Al Gharafa SC",
+      "Kickoff   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2069,
+    "event_type_name": "YC/RC (away)",
+    "category": "Disciplinary",
+    "description": "Second yellow / yellow-red card for away team player.",
+    "python_detection": "detail.startswith(\"YC/RC   \") and away_team in detail",
+    "examples": [
+      "YC/RC   Al Duhail SC [confirmed] - 11 - Almoez Ali [Player confirmed] (foul)",
+      "YC/RC   Al Duhail SC [confirmed] - 5 - Lucas Veríssimo [Player confirmed] (foul)",
+      "YC/RC   Al Markhiya [confirmed] - Unknown (foul)",
+      "YC/RC   Al Shamal SC [confirmed] - 12 - Mohammad Al Mannai [Player confirmed] (foul)",
+      "YC/RC   Al Wakrah SC [confirmed] - 11 - A. Assal [Player confirmed] (foul)"
+    ]
+  },
+  {
+    "event_code": 2070,
+    "event_type_name": "Cancel YC/RC (away)",
+    "category": "Disciplinary",
+    "description": "Yellow-red card for away team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel YC/RC   \") and away_team in detail",
+    "examples": [
+      "Cancel YC/RC   Al Wakrah SC"
+    ]
+  },
+  {
+    "event_code": 2071,
+    "event_type_name": "Cancel RC (away)",
+    "category": "Disciplinary",
+    "description": "Red card for away team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel RC   \") and away_team in detail",
+    "examples": [
+      "Cancel RC   Al Duhail SC",
+      "Cancel RC   Al Shahaniya",
+      "Cancel RC   Al Shamal SC"
+    ]
+  },
+  {
+    "event_code": 2072,
+    "event_type_name": "Cancel YC (away)",
+    "category": "Disciplinary",
+    "description": "Yellow card for away team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel YC   \") and away_team in detail",
+    "examples": [
+      "Cancel YC   Al Gharafa SC",
+      "Cancel YC   Al Markhiya",
+      "Cancel YC   Al Rayyan SC",
+      "Cancel YC   Qatar SC",
+      "Cancel YC   Umm Salal SC"
+    ]
+  },
+  {
+    "event_code": 2074,
+    "event_type_name": "Cancel CR (away)",
+    "category": "Set pieces",
+    "description": "Corner for away team cancelled.",
+    "python_detection": "detail.startswith(\"Cancel CR   \") and away_team in detail",
+    "examples": [
+      "Cancel CR   Al Markhiya",
+      "Cancel CR   Al Sadd SC"
+    ]
+  },
+  {
+    "event_code": 2075,
+    "event_type_name": "Safe (away)",
+    "category": "Ball tracking",
+    "description": "Ball in safe/non-threatening area for away team.",
+    "python_detection": "detail.startswith(\"Safe   \") and away_team in detail",
+    "examples": [
+      "Safe   Al Ahli SC (Doha)",
+      "Safe   Al Arabi SC (Qatar)",
+      "Safe   Al Duhail SC",
+      "Safe   Al Gharafa SC",
+      "Safe   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2076,
+    "event_type_name": "Danger (away)",
+    "category": "Danger signals",
+    "description": "General danger signal for away team.",
+    "python_detection": "detail.startswith(\"Danger   \") and away_team in detail",
+    "examples": [
+      "Danger   Al Ahli SC (Doha)",
+      "Danger   Al Arabi SC (Qatar)",
+      "Danger   Al Duhail SC",
+      "Danger   Al Gharafa SC",
+      "Danger   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2077,
+    "event_type_name": "GK (away)",
+    "category": "Set pieces",
+    "description": "Goal kick for away team.",
+    "python_detection": "detail.startswith(\"GK   \") and away_team in detail",
+    "examples": [
+      "GK   Al Ahli SC (Doha)",
+      "GK   Al Arabi SC (Qatar)",
+      "GK   Al Duhail SC",
+      "GK   Al Gharafa SC",
+      "GK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2078,
+    "event_type_name": "TI (away)",
+    "category": "Set pieces",
+    "description": "Throw-in for away team.",
+    "python_detection": "detail.startswith(\"TI   \") and away_team in detail",
+    "examples": [
+      "TI   Al Ahli SC (Doha)",
+      "TI   Al Arabi SC (Qatar)",
+      "TI   Al Duhail SC",
+      "TI   Al Gharafa SC",
+      "TI   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2079,
+    "event_type_name": "SUB confirmed (away)",
+    "category": "Substitution",
+    "description": "Confirmed away team substitution with player details.",
+    "python_detection": "detail.startswith(\"SUB   \") and away_team in detail",
+    "examples": [
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - Erik Expósito, Player out: 11 - Abdulrahman Fahmi Moustafa [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - Erik Expósito, Player out: 5 - M. Mitrović [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 10 - N. Sliti, Player out: 32 - Navid Mohammad Doozandeh [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 11 - Abdulrahman Fahmi Moustafa, Player out: 21 - Mohammed Abdulla Al Ishaq [Player confirmed]",
+      "SUB   Al Ahli SC (Doha)  - Player in: 11 - Abdulrahman Fahmi Moustafa, Player out: 9 - S. Yansané [Player confirmed]"
+    ]
+  },
+  {
+    "event_code": 2082,
+    "event_type_name": "BLOCK (away)",
+    "category": "Shots",
+    "description": "Shot blocked, away team; with pitch zone.",
+    "python_detection": "detail.startswith(\"BLOCK   \") and away_team in detail",
+    "examples": [
+      "BLOCK   Al Ahli SC (Doha), Zone A2 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone A3 - Attacking half",
+      "BLOCK   Al Ahli SC (Doha), Zone B2 - Attacking half",
+      "BLOCK   Al Arabi SC (Qatar), Zone A2 - Attacking half",
+      "BLOCK   Al Arabi SC (Qatar), Zone A3 - Attacking half"
+    ]
+  },
+  {
+    "event_code": 2084,
+    "event_type_name": "PEN missed (away)",
+    "category": "Penalty",
+    "description": "Away team penalty kick missed.",
+    "python_detection": "detail.startswith(\"PEN missed   \") and away_team in detail",
+    "examples": [
+      "PEN missed   Al Arabi SC (Qatar)",
+      "PEN missed   Al Sadd SC",
+      "PEN missed   Qatar SC"
+    ]
+  },
+  {
+    "event_code": 2086,
+    "event_type_name": "Possible PEN (away)",
+    "category": "Penalty",
+    "description": "Potential penalty situation for away team.",
+    "python_detection": "detail.startswith(\"Possible PEN   \") and away_team in detail",
+    "examples": [
+      "Possible PEN   Al Ahli SC (Doha)",
+      "Possible PEN   Al Arabi SC (Qatar)",
+      "Possible PEN   Al Duhail SC",
+      "Possible PEN   Al Gharafa SC",
+      "Possible PEN   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2088,
+    "event_type_name": "BA (away)",
+    "category": "Ball tracking",
+    "description": "Breakaway/counter-attack for away team.",
+    "python_detection": "detail.startswith(\"BA   \") and away_team in detail",
+    "examples": [
+      "BA   Al Ahli SC (Doha)",
+      "BA   Al Arabi SC (Qatar)",
+      "BA   Al Duhail SC",
+      "BA   Al Gharafa SC",
+      "BA   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2089,
+    "event_type_name": "Goal Conf (away)",
+    "category": "Goals",
+    "description": "Goal confirmation signal for away team.",
+    "python_detection": "detail.startswith(\"Goal Conf   \") and away_team in detail",
+    "examples": [
+      "Goal Conf   Al Ahli SC (Doha)",
+      "Goal Conf   Al Arabi SC (Qatar)",
+      "Goal Conf   Al Duhail SC",
+      "Goal Conf   Al Gharafa SC",
+      "Goal Conf   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2090,
+    "event_type_name": "Possible CR (away)",
+    "category": "Set pieces",
+    "description": "Possible corner kick for away team.",
+    "python_detection": "detail.startswith(\"Possible CR   \") and away_team in detail",
+    "examples": [
+      "Possible CR   Al Ahli SC (Doha)",
+      "Possible CR   Al Arabi SC (Qatar)",
+      "Possible CR   Al Duhail SC",
+      "Possible CR   Al Gharafa SC",
+      "Possible CR   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2091,
+    "event_type_name": "No CR (away)",
+    "category": "Set pieces",
+    "description": "Possible corner for away team not awarded.",
+    "python_detection": "detail.startswith(\"No CR   \") and away_team in detail",
+    "examples": [
+      "No CR   Al Ahli SC (Doha)",
+      "No CR   Al Arabi SC (Qatar)",
+      "No CR   Al Duhail SC",
+      "No CR   Al Gharafa SC",
+      "No CR   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2092,
+    "event_type_name": "YC confirmed (away)",
+    "category": "Disciplinary",
+    "description": "Yellow card officially confirmed for away team.",
+    "python_detection": "detail.startswith(\"YC confirmed   \") and away_team in detail",
+    "examples": [
+      "YC confirmed   Al Ahli SC (Doha)",
+      "YC confirmed   Al Arabi SC (Qatar)",
+      "YC confirmed   Al Duhail SC",
+      "YC confirmed   Al Gharafa SC",
+      "YC confirmed   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2093,
+    "event_type_name": "YC/RC confirmed (away)",
+    "category": "Disciplinary",
+    "description": "Second yellow / yellow-red confirmed for away team.",
+    "python_detection": "detail.startswith(\"YC/RC confirmed   \") and away_team in detail",
+    "examples": [
+      "YC/RC confirmed   Al Duhail SC",
+      "YC/RC confirmed   Al Markhiya",
+      "YC/RC confirmed   Al Shamal SC",
+      "YC/RC confirmed   Al Wakrah SC"
+    ]
+  },
+  {
+    "event_code": 2094,
+    "event_type_name": "RC confirmed (away)",
+    "category": "Disciplinary",
+    "description": "Red card officially confirmed for away team.",
+    "python_detection": "detail.startswith(\"RC confirmed   \") and away_team in detail",
+    "examples": [
+      "RC confirmed   Al Duhail SC",
+      "RC confirmed   Al Khor SC",
+      "RC confirmed   Al Rayyan SC",
+      "RC confirmed   Al Sadd SC",
+      "RC confirmed   Al Shahaniya"
+    ]
+  },
+  {
+    "event_code": 2095,
+    "event_type_name": "Possible FK (away)",
+    "category": "Set pieces",
+    "description": "Possible free kick for away team.",
+    "python_detection": "detail.startswith(\"Possible FK   \") and away_team in detail",
+    "examples": [
+      "Possible FK   Al Ahli SC (Doha)",
+      "Possible FK   Al Arabi SC (Qatar)",
+      "Possible FK   Al Duhail SC",
+      "Possible FK   Al Gharafa SC",
+      "Possible FK   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2097,
+    "event_type_name": "Possible TI (away)",
+    "category": "Set pieces",
+    "description": "Possible throw-in for away team.",
+    "python_detection": "detail.startswith(\"Possible TI   \") and away_team in detail",
+    "examples": [
+      "Possible TI   Al Ahli SC (Doha)",
+      "Possible TI   Al Arabi SC (Qatar)",
+      "Possible TI   Al Duhail SC",
+      "Possible TI   Al Gharafa SC",
+      "Possible TI   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2098,
+    "event_type_name": "Safe directional (away)",
+    "category": "Ball tracking",
+    "description": "Ball in safe zone for away team with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Safe (Center|Left|Right)   \", detail) and away_team in detail",
+    "examples": [
+      "Safe Center   Al Ahli SC (Doha)",
+      "Safe Center   Al Arabi SC (Qatar)",
+      "Safe Center   Al Duhail SC",
+      "Safe Center   Al Gharafa SC",
+      "Safe Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2099,
+    "event_type_name": "Attack directional (away)",
+    "category": "Ball tracking",
+    "description": "Away team attack with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Attack (Center|Left|Right)   \", detail) and away_team in detail",
+    "examples": [
+      "Attack Center   Al Ahli SC (Doha)",
+      "Attack Center   Al Arabi SC (Qatar)",
+      "Attack Center   Al Duhail SC",
+      "Attack Center   Al Gharafa SC",
+      "Attack Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2100,
+    "event_type_name": "Danger directional (away)",
+    "category": "Danger signals",
+    "description": "Away team danger with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Danger (Center|Left|Right)   \", detail) and away_team in detail",
+    "examples": [
+      "Danger Center   Al Ahli SC (Doha)",
+      "Danger Center   Al Arabi SC (Qatar)",
+      "Danger Center   Al Duhail SC",
+      "Danger Center   Al Gharafa SC",
+      "Danger Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2101,
+    "event_type_name": "Breakaway directional (away)",
+    "category": "Ball tracking",
+    "description": "Away team breakaway with direction (Center/Left/Right).",
+    "python_detection": "re.match(r\"Breakaway (Center|Left|Right)   \", detail) and away_team in detail",
+    "examples": [
+      "Breakaway Center   Al Ahli SC (Doha)",
+      "Breakaway Center   Al Arabi SC (Qatar)",
+      "Breakaway Center   Al Duhail SC",
+      "Breakaway Center   Al Gharafa SC",
+      "Breakaway Center   Al Khor SC"
+    ]
+  },
+  {
+    "event_code": 2104,
+    "event_type_name": "Player injured (away)",
+    "category": "Match flow",
+    "description": "Away team player injury notification.",
+    "python_detection": "detail.startswith(\"Player injured   \") and away_team in detail",
+    "examples": [
+      "Player injured   Al Ahli SC (Doha)",
+      "Player injured   Al Arabi SC (Qatar)",
+      "Player injured   Al Duhail SC",
+      "Player injured   Al Gharafa SC",
+      "Player injured   Al Khor SC"
+    ]
+  }
+]
