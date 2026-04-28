@@ -1,7 +1,7 @@
 [
   {
-    "event_code": 0,
-    "event_type_name": "Start 1st half (no team)",
+    "action_code": 0,
+    "action_type": "Start 1st half (no team)",
     "category": "Match flow",
     "description": "Start of 1st half without specifying kick-off team.",
     "python_detection": "detail == \"Start 1st half\"",
@@ -10,8 +10,8 @@
     ]
   },
   {
-    "event_code": 1,
-    "event_type_name": "Stop 1st half",
+    "action_code": 1,
+    "action_type": "Stop 1st half",
     "category": "Match flow",
     "description": "End of first half.",
     "python_detection": "detail == \"Stop 1st half\"",
@@ -20,8 +20,8 @@
     ]
   },
   {
-    "event_code": 3,
-    "event_type_name": "Stop 2nd half",
+    "action_code": 3,
+    "action_type": "Stop 2nd half",
     "category": "Match flow",
     "description": "End of the second half (full time or extra time).",
     "python_detection": "detail == \"Stop 2nd half\"",
@@ -30,8 +30,8 @@
     ]
   },
   {
-    "event_code": 10,
-    "event_type_name": "Start 1st half (home kickoff)",
+    "action_code": 10,
+    "action_type": "Start 1st half (home kickoff)",
     "category": "Match flow",
     "description": "Kick-off of 1st half; home team takes the opening kick-off.",
     "python_detection": "detail.startswith(\"Start 1st half, kickoff:\") and home_team in detail",
@@ -44,8 +44,8 @@
     ]
   },
   {
-    "event_code": 11,
-    "event_type_name": "Start 1st half (away kickoff)",
+    "action_code": 11,
+    "action_type": "Start 1st half (away kickoff)",
     "category": "Match flow",
     "description": "Kick-off of 1st half; away team takes the opening kick-off.",
     "python_detection": "detail.startswith(\"Start 1st half, kickoff:\") and away_team in detail",
@@ -58,8 +58,8 @@
     ]
   },
   {
-    "event_code": 12,
-    "event_type_name": "Start 2nd half (home kickoff)",
+    "action_code": 12,
+    "action_type": "Start 2nd half (home kickoff)",
     "category": "Match flow",
     "description": "Kick-off of 2nd half; home team takes the kick-off.",
     "python_detection": "detail.startswith(\"Start 2nd half, kickoff:\") and home_team in detail",
@@ -72,8 +72,8 @@
     ]
   },
   {
-    "event_code": 13,
-    "event_type_name": "Start 2nd half (away kickoff)",
+    "action_code": 13,
+    "action_type": "Start 2nd half (away kickoff)",
     "category": "Match flow",
     "description": "Kick-off of 2nd half; away team takes the kick-off.",
     "python_detection": "detail.startswith(\"Start 2nd half, kickoff:\") and away_team in detail",
@@ -86,8 +86,8 @@
     ]
   },
   {
-    "event_code": 129,
-    "event_type_name": "Danger",
+    "action_code": 129,
+    "action_type": "Danger",
     "category": "Danger signals",
     "description": "Unspecified danger signal.",
     "python_detection": "detail == \"Danger\"",
@@ -96,8 +96,8 @@
     ]
   },
   {
-    "event_code": 132,
-    "event_type_name": "Game suspended (injury)",
+    "action_code": 132,
+    "action_type": "Game suspended (injury)",
     "category": "Match flow",
     "description": "Match temporarily suspended due to player injury.",
     "python_detection": "detail == \"Game suspended - Player injured\"",
@@ -106,8 +106,8 @@
     ]
   },
   {
-    "event_code": 133,
-    "event_type_name": "Players coming out",
+    "action_code": 133,
+    "action_type": "Players coming out",
     "category": "Match flow",
     "description": "Teams walking out onto the pitch.",
     "python_detection": "detail == \"Players are coming out\"",
@@ -116,8 +116,8 @@
     ]
   },
   {
-    "event_code": 134,
-    "event_type_name": "Players lined up",
+    "action_code": 134,
+    "action_type": "Players lined up",
     "category": "Match flow",
     "description": "Players lined up before kick-off.",
     "python_detection": "detail == \"Players lined up\"",
@@ -126,8 +126,8 @@
     ]
   },
   {
-    "event_code": 136,
-    "event_type_name": "Shake hands",
+    "action_code": 136,
+    "action_type": "Shake hands",
     "category": "Match flow",
     "description": "Pre-match handshake ceremony.",
     "python_detection": "detail == \"Shake hands\"",
@@ -136,8 +136,8 @@
     ]
   },
   {
-    "event_code": 137,
-    "event_type_name": "Coin flipping",
+    "action_code": 137,
+    "action_type": "Coin flipping",
     "category": "Match flow",
     "description": "Coin toss event.",
     "python_detection": "detail == \"Coin flipping\"",
@@ -146,8 +146,8 @@
     ]
   },
   {
-    "event_code": 138,
-    "event_type_name": "Minute of silence",
+    "action_code": 138,
+    "action_type": "Minute of silence",
     "category": "Match flow",
     "description": "Pre-match or in-match minute of silence.",
     "python_detection": "detail == \"Minute of silence\"",
@@ -156,8 +156,8 @@
     ]
   },
   {
-    "event_code": 139,
-    "event_type_name": "Prize giving ceremony",
+    "action_code": 139,
+    "action_type": "Prize giving ceremony",
     "category": "Match flow",
     "description": "Post-match prize/award ceremony.",
     "python_detection": "detail == \"Prize giving ceremony\"",
@@ -166,8 +166,8 @@
     ]
   },
   {
-    "event_code": 140,
-    "event_type_name": "Photo taking",
+    "action_code": 140,
+    "action_type": "Photo taking",
     "category": "Match flow",
     "description": "Operator photo capture (internal tracking).",
     "python_detection": "detail == \"Photo taking\"",
@@ -176,8 +176,8 @@
     ]
   },
   {
-    "event_code": 141,
-    "event_type_name": "Game about to start",
+    "action_code": 141,
+    "action_type": "Game about to start",
     "category": "Match flow",
     "description": "Imminent kick-off warning signal.",
     "python_detection": "detail == \"Game about to start\"",
@@ -186,8 +186,8 @@
     ]
   },
   {
-    "event_code": 142,
-    "event_type_name": "Missed",
+    "action_code": 142,
+    "action_type": "Missed",
     "category": "Penalty",
     "description": "General missed penalty/shot event.",
     "python_detection": "detail == \"Missed\"",
@@ -196,8 +196,8 @@
     ]
   },
   {
-    "event_code": 143,
-    "event_type_name": "Possible RC",
+    "action_code": 143,
+    "action_type": "Possible RC",
     "category": "Disciplinary",
     "description": "Possible red card situation being assessed.",
     "python_detection": "detail == \"Possible RC\"",
@@ -206,8 +206,8 @@
     ]
   },
   {
-    "event_code": 144,
-    "event_type_name": "Possible PEN",
+    "action_code": 144,
+    "action_type": "Possible PEN",
     "category": "Penalty",
     "description": "General possible penalty situation (no team specified).",
     "python_detection": "detail == \"Possible PEN\"",
@@ -216,8 +216,8 @@
     ]
   },
   {
-    "event_code": 145,
-    "event_type_name": "No RC",
+    "action_code": 145,
+    "action_type": "No RC",
     "category": "Disciplinary",
     "description": "No red card issued after review.",
     "python_detection": "detail == \"No RC\"",
@@ -226,8 +226,8 @@
     ]
   },
   {
-    "event_code": 146,
-    "event_type_name": "No PEN",
+    "action_code": 146,
+    "action_type": "No PEN",
     "category": "Penalty",
     "description": "No penalty awarded after review.",
     "python_detection": "detail == \"No PEN\"",
@@ -236,8 +236,8 @@
     ]
   },
   {
-    "event_code": 148,
-    "event_type_name": "Restart",
+    "action_code": 148,
+    "action_type": "Restart",
     "category": "Match flow",
     "description": "Ball back in play after a stoppage.",
     "python_detection": "detail == \"Restart\"",
@@ -246,8 +246,8 @@
     ]
   },
   {
-    "event_code": 149,
-    "event_type_name": "Game suspended (generic)",
+    "action_code": 149,
+    "action_type": "Game suspended (generic)",
     "category": "Match flow",
     "description": "Match temporarily suspended (no specific reason).",
     "python_detection": "detail == \"Game suspended\"",
@@ -256,8 +256,8 @@
     ]
   },
   {
-    "event_code": 187,
-    "event_type_name": "Goal under investigation",
+    "action_code": 187,
+    "action_type": "Goal under investigation",
     "category": "Goals",
     "description": "Scored goal under investigation / pending review.",
     "python_detection": "detail == \"Goal under investigation\"",
@@ -266,8 +266,8 @@
     ]
   },
   {
-    "event_code": 197,
-    "event_type_name": "Updating score",
+    "action_code": 197,
+    "action_type": "Updating score",
     "category": "Data update",
     "description": "Score update in progress.",
     "python_detection": "detail == \"Updating score\"",
@@ -276,8 +276,8 @@
     ]
   },
   {
-    "event_code": 198,
-    "event_type_name": "Score updated",
+    "action_code": 198,
+    "action_type": "Score updated",
     "category": "Data update",
     "description": "Score officially updated.",
     "python_detection": "detail == \"Score updated\"",
@@ -286,8 +286,8 @@
     ]
   },
   {
-    "event_code": 207,
-    "event_type_name": "Possible FK",
+    "action_code": 207,
+    "action_type": "Possible FK",
     "category": "Set pieces",
     "description": "Possible free kick (no team specified).",
     "python_detection": "detail == \"Possible FK\"",
@@ -296,8 +296,8 @@
     ]
   },
   {
-    "event_code": 208,
-    "event_type_name": "No FK",
+    "action_code": 208,
+    "action_type": "No FK",
     "category": "Set pieces",
     "description": "Possible free kick reviewed and not awarded.",
     "python_detection": "detail == \"No FK\"",
@@ -306,8 +306,8 @@
     ]
   },
   {
-    "event_code": 209,
-    "event_type_name": "Drop ball",
+    "action_code": 209,
+    "action_type": "Drop ball",
     "category": "Match flow",
     "description": "Referee drop ball restart.",
     "python_detection": "detail == \"Drop Ball\"",
@@ -316,8 +316,8 @@
     ]
   },
   {
-    "event_code": 216,
-    "event_type_name": "Statistic confirmation",
+    "action_code": 216,
+    "action_type": "Statistic confirmation",
     "category": "Data update",
     "description": "Match statistics confirmed by operator.",
     "python_detection": "detail == \"Statistic confirmation\"",
@@ -326,8 +326,8 @@
     ]
   },
   {
-    "event_code": 220,
-    "event_type_name": "Close market",
+    "action_code": 220,
+    "action_type": "Close market",
     "category": "Trading",
     "description": "Betting/trading market closed for this match.",
     "python_detection": "detail == \"Close Market\"",
@@ -336,8 +336,8 @@
     ]
   },
   {
-    "event_code": 221,
-    "event_type_name": "Open market",
+    "action_code": 221,
+    "action_type": "Open market",
     "category": "Trading",
     "description": "Betting/trading market opened for this match.",
     "python_detection": "detail == \"Open Market\"",
@@ -346,8 +346,8 @@
     ]
   },
   {
-    "event_code": 226,
-    "event_type_name": "Possible card",
+    "action_code": 226,
+    "action_type": "Possible card",
     "category": "Disciplinary",
     "description": "Possible disciplinary card being assessed.",
     "python_detection": "detail == \"Possible card\"",
@@ -356,8 +356,8 @@
     ]
   },
   {
-    "event_code": 227,
-    "event_type_name": "No card",
+    "action_code": 227,
+    "action_type": "No card",
     "category": "Disciplinary",
     "description": "No card issued after review.",
     "python_detection": "detail == \"No card\"",
@@ -366,8 +366,8 @@
     ]
   },
   {
-    "event_code": 228,
-    "event_type_name": "Possible TI",
+    "action_code": 228,
+    "action_type": "Possible TI",
     "category": "Set pieces",
     "description": "Possible throw-in (no team specified).",
     "python_detection": "detail == \"Possible TI\"",
@@ -376,8 +376,8 @@
     ]
   },
   {
-    "event_code": 229,
-    "event_type_name": "No TI",
+    "action_code": 229,
+    "action_type": "No TI",
     "category": "Set pieces",
     "description": "Possible throw-in not awarded.",
     "python_detection": "detail == \"No TI\"",
@@ -386,8 +386,8 @@
     ]
   },
   {
-    "event_code": 258,
-    "event_type_name": "Game conditions changed",
+    "action_code": 258,
+    "action_type": "Game conditions changed",
     "category": "Match flow",
     "description": "Change in match conditions (e.g. weather, pitch).",
     "python_detection": "detail == \"Game conditions changed\"",
@@ -396,8 +396,8 @@
     ]
   },
   {
-    "event_code": 260,
-    "event_type_name": "Stoppage time",
+    "action_code": 260,
+    "action_type": "Stoppage time",
     "category": "Match flow",
     "description": "Stoppage time announced by referee.",
     "python_detection": "detail.startswith(\"Stoppage time:\")",
@@ -410,8 +410,8 @@
     ]
   },
   {
-    "event_code": 261,
-    "event_type_name": "Event details changed",
+    "action_code": 261,
+    "action_type": "Event details changed",
     "category": "Data update",
     "description": "Details of a previously recorded event updated.",
     "python_detection": "detail.startswith(\"Event details for\")",
@@ -424,8 +424,8 @@
     ]
   },
   {
-    "event_code": 266,
-    "event_type_name": "Yellow card time adjusted",
+    "action_code": 266,
+    "action_type": "Yellow card time adjusted",
     "category": "Data update",
     "description": "Yellow card timestamp corrected.",
     "python_detection": "re.search(r\"Yellow card time was adjusted\", detail)",
@@ -438,8 +438,8 @@
     ]
   },
   {
-    "event_code": 278,
-    "event_type_name": "Game clock adjustment",
+    "action_code": 278,
+    "action_type": "Game clock adjustment",
     "category": "Match flow",
     "description": "Match clock adjusted; offset duration may be included.",
     "python_detection": "detail.startswith(\"Game clock adjustment\")",
@@ -452,8 +452,8 @@
     ]
   },
   {
-    "event_code": 280,
-    "event_type_name": "Score last period confirmed",
+    "action_code": 280,
+    "action_type": "Score last period confirmed",
     "category": "Match flow",
     "description": "Score at end of the last period confirmed.",
     "python_detection": "detail == \"Score of last period confirmed\"",
@@ -462,8 +462,8 @@
     ]
   },
   {
-    "event_code": 283,
-    "event_type_name": "Substitution details changed",
+    "action_code": 283,
+    "action_type": "Substitution details changed",
     "category": "Substitution",
     "description": "Substitution player details corrected or confirmed.",
     "python_detection": "detail.startswith(\"Substitution details for\")",
@@ -476,8 +476,8 @@
     ]
   },
   {
-    "event_code": 285,
-    "event_type_name": "Player data confirmed",
+    "action_code": 285,
+    "action_type": "Player data confirmed",
     "category": "Data update",
     "description": "Player identity for a prior event confirmed.",
     "python_detection": "detail.startswith(\"Player data for\")",
@@ -490,8 +490,8 @@
     ]
   },
   {
-    "event_code": 515,
-    "event_type_name": "Scout offline",
+    "action_code": 515,
+    "action_type": "Scout offline",
     "category": "Operations",
     "description": "Match scout/operator has gone offline.",
     "python_detection": "detail == \"Scout offline\"",
@@ -500,8 +500,8 @@
     ]
   },
   {
-    "event_code": 520,
-    "event_type_name": "Lineup changed",
+    "action_code": 520,
+    "action_type": "Lineup changed",
     "category": "Data update",
     "description": "Team lineup updated.",
     "python_detection": "detail == \"Lineup changed\"",
@@ -510,8 +510,8 @@
     ]
   },
   {
-    "event_code": 524,
-    "event_type_name": "Jersey colours updated",
+    "action_code": 524,
+    "action_type": "Jersey colours updated",
     "category": "Data update",
     "description": "Team jersey colour information updated.",
     "python_detection": "detail == \"Jersey colours updated\"",
@@ -520,8 +520,8 @@
     ]
   },
   {
-    "event_code": 533,
-    "event_type_name": "VAR start",
+    "action_code": 533,
+    "action_type": "VAR start",
     "category": "VAR",
     "description": "VAR review process started.",
     "python_detection": "detail == \"VAR Start\"",
@@ -530,8 +530,8 @@
     ]
   },
   {
-    "event_code": 534,
-    "event_type_name": "No VAR",
+    "action_code": 534,
+    "action_type": "No VAR",
     "category": "VAR",
     "description": "No VAR intervention applied.",
     "python_detection": "detail == \"No VAR\"",
@@ -540,8 +540,8 @@
     ]
   },
   {
-    "event_code": 535,
-    "event_type_name": "VAR event",
+    "action_code": 535,
+    "action_type": "VAR event",
     "category": "VAR",
     "description": "VAR event confirmed; includes type (Penalty, Unknown).",
     "python_detection": "detail.startswith(\"VAR Event:\")",
@@ -553,8 +553,8 @@
     ]
   },
   {
-    "event_code": 536,
-    "event_type_name": "VAR stop",
+    "action_code": 536,
+    "action_type": "VAR stop",
     "category": "VAR",
     "description": "VAR review concluded.",
     "python_detection": "detail == \"VAR Stop\"",
@@ -563,8 +563,8 @@
     ]
   },
   {
-    "event_code": 537,
-    "event_type_name": "Penalty about to be taken",
+    "action_code": 537,
+    "action_type": "Penalty about to be taken",
     "category": "Penalty",
     "description": "Penalty kick is imminent.",
     "python_detection": "detail == \"Penalty about to be taken\"",
@@ -573,8 +573,8 @@
     ]
   },
   {
-    "event_code": 540,
-    "event_type_name": "Possible VAR",
+    "action_code": 540,
+    "action_type": "Possible VAR",
     "category": "VAR",
     "description": "Situation flagged for possible VAR review.",
     "python_detection": "detail == \"Possible VAR\"",
@@ -583,8 +583,8 @@
     ]
   },
   {
-    "event_code": 541,
-    "event_type_name": "Possible VAR event",
+    "action_code": 541,
+    "action_type": "Possible VAR event",
     "category": "VAR",
     "description": "Specific possible VAR event type identified.",
     "python_detection": "detail.startswith(\"Possible VAR Event:\")",
@@ -596,8 +596,8 @@
     ]
   },
   {
-    "event_code": 542,
-    "event_type_name": "VAR review cause",
+    "action_code": 542,
+    "action_type": "VAR review cause",
     "category": "VAR",
     "description": "Reason for VAR review specified.",
     "python_detection": "detail.startswith(\"VAR Review Cause:\")",
@@ -609,8 +609,8 @@
     ]
   },
   {
-    "event_code": 543,
-    "event_type_name": "Provisional Goal Confirmation",
+    "action_code": 543,
+    "action_type": "Provisional Goal Confirmation",
     "category": "Goals",
     "description": "Goal provisionally confirmed pending full review.",
     "python_detection": "detail == \"Provisional Goal Confirmation\"",
@@ -619,8 +619,8 @@
     ]
   },
   {
-    "event_code": 1024,
-    "event_type_name": "AT (home)",
+    "action_code": 1024,
+    "action_type": "AT (home)",
     "category": "Ball tracking",
     "description": "Home team attack/possession.",
     "python_detection": "detail.startswith(\"AT   \") and home_team in detail",
@@ -633,8 +633,8 @@
     ]
   },
   {
-    "event_code": 1025,
-    "event_type_name": "CR (home)",
+    "action_code": 1025,
+    "action_type": "CR (home)",
     "category": "Set pieces",
     "description": "Corner kick for home team; includes side (left/right).",
     "python_detection": "detail.startswith(\"CR   \") and home_team in detail",
@@ -647,8 +647,8 @@
     ]
   },
   {
-    "event_code": 1026,
-    "event_type_name": "DAT (home)",
+    "action_code": 1026,
+    "action_type": "DAT (home)",
     "category": "Ball tracking",
     "description": "Dangerous attack for home team.",
     "python_detection": "detail.startswith(\"DAT   \") and home_team in detail",
@@ -661,8 +661,8 @@
     ]
   },
   {
-    "event_code": 1027,
-    "event_type_name": "DFK (home)",
+    "action_code": 1027,
+    "action_type": "DFK (home)",
     "category": "Set pieces",
     "description": "Dangerous free kick for home team.",
     "python_detection": "detail.startswith(\"DFK   \") and home_team in detail",
@@ -675,8 +675,8 @@
     ]
   },
   {
-    "event_code": 1028,
-    "event_type_name": "FK (home)",
+    "action_code": 1028,
+    "action_type": "FK (home)",
     "category": "Set pieces",
     "description": "Free kick for home team; includes zone and pitch location.",
     "python_detection": "detail.startswith(\"FK   \") and home_team in detail",
@@ -689,8 +689,8 @@
     ]
   },
   {
-    "event_code": 1029,
-    "event_type_name": "Goal (home)",
+    "action_code": 1029,
+    "action_type": "Goal (home)",
     "category": "Goals",
     "description": "Confirmed goal for home team with scorer, method and zone.",
     "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Goal\\s+\", detail) and home_team in detail",
@@ -703,8 +703,8 @@
     ]
   },
   {
-    "event_code": 1030,
-    "event_type_name": "Cancel goal (home)",
+    "action_code": 1030,
+    "action_type": "Cancel goal (home)",
     "category": "Goals",
     "description": "Previously recorded goal for home team cancelled.",
     "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Cancel Goal\", detail) and home_team in detail",
@@ -717,8 +717,8 @@
     ]
   },
   {
-    "event_code": 1031,
-    "event_type_name": "PEN (home)",
+    "action_code": 1031,
+    "action_type": "PEN (home)",
     "category": "Penalty",
     "description": "Penalty awarded to the home team; includes taker details.",
     "python_detection": "detail.startswith(\"PEN   \") and home_team in detail",
@@ -731,8 +731,8 @@
     ]
   },
   {
-    "event_code": 1032,
-    "event_type_name": "RC (home)",
+    "action_code": 1032,
+    "action_type": "RC (home)",
     "category": "Disciplinary",
     "description": "Red card for home team player; includes reason.",
     "python_detection": "detail.startswith(\"RC   \") and home_team in detail",
@@ -745,8 +745,8 @@
     ]
   },
   {
-    "event_code": 1034,
-    "event_type_name": "YC (home)",
+    "action_code": 1034,
+    "action_type": "YC (home)",
     "category": "Disciplinary",
     "description": "Yellow card for home team player; includes reason.",
     "python_detection": "detail.startswith(\"YC   \") and home_team in detail",
@@ -759,8 +759,8 @@
     ]
   },
   {
-    "event_code": 1039,
-    "event_type_name": "SH on target (home)",
+    "action_code": 1039,
+    "action_type": "SH on target (home)",
     "category": "Shots",
     "description": "Shot on target by home team with pitch zone.",
     "python_detection": "detail.startswith(\"SH (on target)   \") and home_team in detail",
@@ -773,8 +773,8 @@
     ]
   },
   {
-    "event_code": 1040,
-    "event_type_name": "SH off target (home)",
+    "action_code": 1040,
+    "action_type": "SH off target (home)",
     "category": "Shots",
     "description": "Shot off target by home team with pitch zone.",
     "python_detection": "detail.startswith(\"SH (off target)   \") and home_team in detail",
@@ -787,8 +787,8 @@
     ]
   },
   {
-    "event_code": 1041,
-    "event_type_name": "SH woodwork (home)",
+    "action_code": 1041,
+    "action_type": "SH woodwork (home)",
     "category": "Shots",
     "description": "Home team shot hits the woodwork; zone included.",
     "python_detection": "detail.startswith(\"SH (woodwork)   \") and home_team in detail",
@@ -801,8 +801,8 @@
     ]
   },
   {
-    "event_code": 1042,
-    "event_type_name": "Foul (home)",
+    "action_code": 1042,
+    "action_type": "Foul (home)",
     "category": "Disciplinary",
     "description": "Foul committed by home team.",
     "python_detection": "detail.startswith(\"Foul   \") and home_team in detail",
@@ -815,8 +815,8 @@
     ]
   },
   {
-    "event_code": 1043,
-    "event_type_name": "Offside (home)",
+    "action_code": 1043,
+    "action_type": "Offside (home)",
     "category": "Match flow",
     "description": "Offside against home team.",
     "python_detection": "detail.startswith(\"Offside   \") and home_team in detail",
@@ -829,8 +829,8 @@
     ]
   },
   {
-    "event_code": 1044,
-    "event_type_name": "Kickoff (home)",
+    "action_code": 1044,
+    "action_type": "Kickoff (home)",
     "category": "Match flow",
     "description": "Home team takes a kick-off.",
     "python_detection": "detail.startswith(\"Kickoff   \") and home_team in detail",
@@ -843,8 +843,8 @@
     ]
   },
   {
-    "event_code": 1045,
-    "event_type_name": "YC/RC (home)",
+    "action_code": 1045,
+    "action_type": "YC/RC (home)",
     "category": "Disciplinary",
     "description": "Second yellow / yellow-red card for home team player.",
     "python_detection": "detail.startswith(\"YC/RC   \") and home_team in detail",
@@ -855,8 +855,8 @@
     ]
   },
   {
-    "event_code": 1046,
-    "event_type_name": "Cancel YC/RC (home)",
+    "action_code": 1046,
+    "action_type": "Cancel YC/RC (home)",
     "category": "Disciplinary",
     "description": "Yellow-red card for home team cancelled.",
     "python_detection": "detail.startswith(\"Cancel YC/RC   \") and home_team in detail",
@@ -865,8 +865,8 @@
     ]
   },
   {
-    "event_code": 1048,
-    "event_type_name": "Cancel YC (home)",
+    "action_code": 1048,
+    "action_type": "Cancel YC (home)",
     "category": "Disciplinary",
     "description": "Yellow card for home team cancelled.",
     "python_detection": "detail.startswith(\"Cancel YC   \") and home_team in detail",
@@ -879,8 +879,8 @@
     ]
   },
   {
-    "event_code": 1049,
-    "event_type_name": "Cancel PEN (home)",
+    "action_code": 1049,
+    "action_type": "Cancel PEN (home)",
     "category": "Penalty",
     "description": "Penalty for home team cancelled.",
     "python_detection": "detail.startswith(\"Cancel PEN   \") and home_team in detail",
@@ -891,8 +891,8 @@
     ]
   },
   {
-    "event_code": 1050,
-    "event_type_name": "Cancel CR (home)",
+    "action_code": 1050,
+    "action_type": "Cancel CR (home)",
     "category": "Set pieces",
     "description": "Corner for home team cancelled.",
     "python_detection": "detail.startswith(\"Cancel CR   \") and home_team in detail",
@@ -902,8 +902,8 @@
     ]
   },
   {
-    "event_code": 1051,
-    "event_type_name": "Safe (home)",
+    "action_code": 1051,
+    "action_type": "Safe (home)",
     "category": "Ball tracking",
     "description": "Ball in safe/non-threatening area for home team.",
     "python_detection": "detail.startswith(\"Safe   \") and home_team in detail",
@@ -916,8 +916,8 @@
     ]
   },
   {
-    "event_code": 1052,
-    "event_type_name": "Danger (home)",
+    "action_code": 1052,
+    "action_type": "Danger (home)",
     "category": "Danger signals",
     "description": "General danger signal for home team.",
     "python_detection": "detail.startswith(\"Danger   \") and home_team in detail",
@@ -930,8 +930,8 @@
     ]
   },
   {
-    "event_code": 1053,
-    "event_type_name": "GK (home)",
+    "action_code": 1053,
+    "action_type": "GK (home)",
     "category": "Set pieces",
     "description": "Goal kick for home team.",
     "python_detection": "detail.startswith(\"GK   \") and home_team in detail",
@@ -944,8 +944,8 @@
     ]
   },
   {
-    "event_code": 1054,
-    "event_type_name": "TI (home)",
+    "action_code": 1054,
+    "action_type": "TI (home)",
     "category": "Set pieces",
     "description": "Throw-in for home team.",
     "python_detection": "detail.startswith(\"TI   \") and home_team in detail",
@@ -958,8 +958,8 @@
     ]
   },
   {
-    "event_code": 1055,
-    "event_type_name": "SUB confirmed (home)",
+    "action_code": 1055,
+    "action_type": "SUB confirmed (home)",
     "category": "Substitution",
     "description": "Confirmed home team substitution with player details.",
     "python_detection": "detail.startswith(\"SUB   \") and home_team in detail",
@@ -972,8 +972,8 @@
     ]
   },
   {
-    "event_code": 1058,
-    "event_type_name": "BLOCK (home)",
+    "action_code": 1058,
+    "action_type": "BLOCK (home)",
     "category": "Shots",
     "description": "Shot blocked, home team; with pitch zone.",
     "python_detection": "detail.startswith(\"BLOCK   \") and home_team in detail",
@@ -986,8 +986,8 @@
     ]
   },
   {
-    "event_code": 1060,
-    "event_type_name": "PEN missed (home)",
+    "action_code": 1060,
+    "action_type": "PEN missed (home)",
     "category": "Penalty",
     "description": "Home team penalty kick missed.",
     "python_detection": "detail.startswith(\"PEN missed   \") and home_team in detail",
@@ -1000,8 +1000,8 @@
     ]
   },
   {
-    "event_code": 1062,
-    "event_type_name": "Possible PEN (home)",
+    "action_code": 1062,
+    "action_type": "Possible PEN (home)",
     "category": "Penalty",
     "description": "Potential penalty situation for home team.",
     "python_detection": "detail.startswith(\"Possible PEN   \") and home_team in detail",
@@ -1014,8 +1014,8 @@
     ]
   },
   {
-    "event_code": 1064,
-    "event_type_name": "BA (home)",
+    "action_code": 1064,
+    "action_type": "BA (home)",
     "category": "Ball tracking",
     "description": "Breakaway/counter-attack for home team.",
     "python_detection": "detail.startswith(\"BA   \") and home_team in detail",
@@ -1028,8 +1028,8 @@
     ]
   },
   {
-    "event_code": 1065,
-    "event_type_name": "Goal Conf (home)",
+    "action_code": 1065,
+    "action_type": "Goal Conf (home)",
     "category": "Goals",
     "description": "Goal confirmation signal for home team.",
     "python_detection": "detail.startswith(\"Goal Conf   \") and home_team in detail",
@@ -1042,8 +1042,8 @@
     ]
   },
   {
-    "event_code": 1066,
-    "event_type_name": "Possible CR (home)",
+    "action_code": 1066,
+    "action_type": "Possible CR (home)",
     "category": "Set pieces",
     "description": "Possible corner kick for home team.",
     "python_detection": "detail.startswith(\"Possible CR   \") and home_team in detail",
@@ -1056,8 +1056,8 @@
     ]
   },
   {
-    "event_code": 1067,
-    "event_type_name": "No CR (home)",
+    "action_code": 1067,
+    "action_type": "No CR (home)",
     "category": "Set pieces",
     "description": "Possible corner for home team not awarded.",
     "python_detection": "detail.startswith(\"No CR   \") and home_team in detail",
@@ -1070,8 +1070,8 @@
     ]
   },
   {
-    "event_code": 1068,
-    "event_type_name": "YC confirmed (home)",
+    "action_code": 1068,
+    "action_type": "YC confirmed (home)",
     "category": "Disciplinary",
     "description": "Yellow card officially confirmed for home team.",
     "python_detection": "detail.startswith(\"YC confirmed   \") and home_team in detail",
@@ -1084,8 +1084,8 @@
     ]
   },
   {
-    "event_code": 1069,
-    "event_type_name": "YC/RC confirmed (home)",
+    "action_code": 1069,
+    "action_type": "YC/RC confirmed (home)",
     "category": "Disciplinary",
     "description": "Second yellow / yellow-red confirmed for home team.",
     "python_detection": "detail.startswith(\"YC/RC confirmed   \") and home_team in detail",
@@ -1096,8 +1096,8 @@
     ]
   },
   {
-    "event_code": 1070,
-    "event_type_name": "RC confirmed (home)",
+    "action_code": 1070,
+    "action_type": "RC confirmed (home)",
     "category": "Disciplinary",
     "description": "Red card officially confirmed for home team.",
     "python_detection": "detail.startswith(\"RC confirmed   \") and home_team in detail",
@@ -1110,8 +1110,8 @@
     ]
   },
   {
-    "event_code": 1071,
-    "event_type_name": "Possible FK (home)",
+    "action_code": 1071,
+    "action_type": "Possible FK (home)",
     "category": "Set pieces",
     "description": "Possible free kick for home team.",
     "python_detection": "detail.startswith(\"Possible FK   \") and home_team in detail",
@@ -1124,8 +1124,8 @@
     ]
   },
   {
-    "event_code": 1073,
-    "event_type_name": "Possible TI (home)",
+    "action_code": 1073,
+    "action_type": "Possible TI (home)",
     "category": "Set pieces",
     "description": "Possible throw-in for home team.",
     "python_detection": "detail.startswith(\"Possible TI   \") and home_team in detail",
@@ -1138,8 +1138,8 @@
     ]
   },
   {
-    "event_code": 1074,
-    "event_type_name": "Safe directional (home)",
+    "action_code": 1074,
+    "action_type": "Safe directional (home)",
     "category": "Ball tracking",
     "description": "Ball in safe zone for home team with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Safe (Center|Left|Right)   \", detail) and home_team in detail",
@@ -1152,8 +1152,8 @@
     ]
   },
   {
-    "event_code": 1075,
-    "event_type_name": "Attack directional (home)",
+    "action_code": 1075,
+    "action_type": "Attack directional (home)",
     "category": "Ball tracking",
     "description": "Home team attack with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Attack (Center|Left|Right)   \", detail) and home_team in detail",
@@ -1166,8 +1166,8 @@
     ]
   },
   {
-    "event_code": 1076,
-    "event_type_name": "Danger directional (home)",
+    "action_code": 1076,
+    "action_type": "Danger directional (home)",
     "category": "Danger signals",
     "description": "Home team danger with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Danger (Center|Left|Right)   \", detail) and home_team in detail",
@@ -1180,8 +1180,8 @@
     ]
   },
   {
-    "event_code": 1077,
-    "event_type_name": "Breakaway directional (home)",
+    "action_code": 1077,
+    "action_type": "Breakaway directional (home)",
     "category": "Ball tracking",
     "description": "Home team breakaway with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Breakaway (Center|Left|Right)   \", detail) and home_team in detail",
@@ -1194,8 +1194,8 @@
     ]
   },
   {
-    "event_code": 1080,
-    "event_type_name": "Player injured (home)",
+    "action_code": 1080,
+    "action_type": "Player injured (home)",
     "category": "Match flow",
     "description": "Home team player injury notification.",
     "python_detection": "detail.startswith(\"Player injured   \") and home_team in detail",
@@ -1208,8 +1208,8 @@
     ]
   },
   {
-    "event_code": 2048,
-    "event_type_name": "AT (away)",
+    "action_code": 2048,
+    "action_type": "AT (away)",
     "category": "Ball tracking",
     "description": "Away team attack/possession.",
     "python_detection": "detail.startswith(\"AT   \") and away_team in detail",
@@ -1222,8 +1222,8 @@
     ]
   },
   {
-    "event_code": 2049,
-    "event_type_name": "CR (away)",
+    "action_code": 2049,
+    "action_type": "CR (away)",
     "category": "Set pieces",
     "description": "Corner kick for away team; includes side.",
     "python_detection": "detail.startswith(\"CR   \") and away_team in detail",
@@ -1236,8 +1236,8 @@
     ]
   },
   {
-    "event_code": 2050,
-    "event_type_name": "DAT (away)",
+    "action_code": 2050,
+    "action_type": "DAT (away)",
     "category": "Ball tracking",
     "description": "Dangerous attack for away team.",
     "python_detection": "detail.startswith(\"DAT   \") and away_team in detail",
@@ -1250,8 +1250,8 @@
     ]
   },
   {
-    "event_code": 2051,
-    "event_type_name": "DFK (away)",
+    "action_code": 2051,
+    "action_type": "DFK (away)",
     "category": "Set pieces",
     "description": "Dangerous free kick for away team.",
     "python_detection": "detail.startswith(\"DFK   \") and away_team in detail",
@@ -1264,8 +1264,8 @@
     ]
   },
   {
-    "event_code": 2052,
-    "event_type_name": "FK (away)",
+    "action_code": 2052,
+    "action_type": "FK (away)",
     "category": "Set pieces",
     "description": "Free kick for away team; includes zone and pitch location.",
     "python_detection": "detail.startswith(\"FK   \") and away_team in detail",
@@ -1278,8 +1278,8 @@
     ]
   },
   {
-    "event_code": 2053,
-    "event_type_name": "Goal (away)",
+    "action_code": 2053,
+    "action_type": "Goal (away)",
     "category": "Goals",
     "description": "Confirmed goal for away team with scorer, method and zone.",
     "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Goal\\s+\", detail) and away_team in detail",
@@ -1292,8 +1292,8 @@
     ]
   },
   {
-    "event_code": 2054,
-    "event_type_name": "Cancel goal (away)",
+    "action_code": 2054,
+    "action_type": "Cancel goal (away)",
     "category": "Goals",
     "description": "Previously recorded goal for away team cancelled.",
     "python_detection": "re.search(r\"\\[\\d+\\s*:\\s*\\d+\\]\\s+Cancel Goal\", detail) and away_team in detail",
@@ -1306,8 +1306,8 @@
     ]
   },
   {
-    "event_code": 2055,
-    "event_type_name": "PEN (away)",
+    "action_code": 2055,
+    "action_type": "PEN (away)",
     "category": "Penalty",
     "description": "Penalty awarded to away team; includes taker details.",
     "python_detection": "detail.startswith(\"PEN   \") and away_team in detail",
@@ -1320,8 +1320,8 @@
     ]
   },
   {
-    "event_code": 2056,
-    "event_type_name": "RC (away)",
+    "action_code": 2056,
+    "action_type": "RC (away)",
     "category": "Disciplinary",
     "description": "Red card for away team player; includes reason.",
     "python_detection": "detail.startswith(\"RC   \") and away_team in detail",
@@ -1334,8 +1334,8 @@
     ]
   },
   {
-    "event_code": 2058,
-    "event_type_name": "YC (away)",
+    "action_code": 2058,
+    "action_type": "YC (away)",
     "category": "Disciplinary",
     "description": "Yellow card for away team player; includes reason.",
     "python_detection": "detail.startswith(\"YC   \") and away_team in detail",
@@ -1348,8 +1348,8 @@
     ]
   },
   {
-    "event_code": 2063,
-    "event_type_name": "SH on target (away)",
+    "action_code": 2063,
+    "action_type": "SH on target (away)",
     "category": "Shots",
     "description": "Shot on target by away team with pitch zone.",
     "python_detection": "detail.startswith(\"SH (on target)   \") and away_team in detail",
@@ -1362,8 +1362,8 @@
     ]
   },
   {
-    "event_code": 2064,
-    "event_type_name": "SH off target (away)",
+    "action_code": 2064,
+    "action_type": "SH off target (away)",
     "category": "Shots",
     "description": "Shot off target by away team with pitch zone.",
     "python_detection": "detail.startswith(\"SH (off target)   \") and away_team in detail",
@@ -1376,8 +1376,8 @@
     ]
   },
   {
-    "event_code": 2065,
-    "event_type_name": "SH woodwork (away)",
+    "action_code": 2065,
+    "action_type": "SH woodwork (away)",
     "category": "Shots",
     "description": "Away team shot hits the woodwork; zone included.",
     "python_detection": "detail.startswith(\"SH (woodwork)   \") and away_team in detail",
@@ -1390,8 +1390,8 @@
     ]
   },
   {
-    "event_code": 2066,
-    "event_type_name": "Foul (away)",
+    "action_code": 2066,
+    "action_type": "Foul (away)",
     "category": "Disciplinary",
     "description": "Foul committed by away team.",
     "python_detection": "detail.startswith(\"Foul   \") and away_team in detail",
@@ -1404,8 +1404,8 @@
     ]
   },
   {
-    "event_code": 2067,
-    "event_type_name": "Offside (away)",
+    "action_code": 2067,
+    "action_type": "Offside (away)",
     "category": "Match flow",
     "description": "Offside against away team.",
     "python_detection": "detail.startswith(\"Offside   \") and away_team in detail",
@@ -1418,8 +1418,8 @@
     ]
   },
   {
-    "event_code": 2068,
-    "event_type_name": "Kickoff (away)",
+    "action_code": 2068,
+    "action_type": "Kickoff (away)",
     "category": "Match flow",
     "description": "Away team takes a kick-off.",
     "python_detection": "detail.startswith(\"Kickoff   \") and away_team in detail",
@@ -1432,8 +1432,8 @@
     ]
   },
   {
-    "event_code": 2069,
-    "event_type_name": "YC/RC (away)",
+    "action_code": 2069,
+    "action_type": "YC/RC (away)",
     "category": "Disciplinary",
     "description": "Second yellow / yellow-red card for away team player.",
     "python_detection": "detail.startswith(\"YC/RC   \") and away_team in detail",
@@ -1446,8 +1446,8 @@
     ]
   },
   {
-    "event_code": 2070,
-    "event_type_name": "Cancel YC/RC (away)",
+    "action_code": 2070,
+    "action_type": "Cancel YC/RC (away)",
     "category": "Disciplinary",
     "description": "Yellow-red card for away team cancelled.",
     "python_detection": "detail.startswith(\"Cancel YC/RC   \") and away_team in detail",
@@ -1456,8 +1456,8 @@
     ]
   },
   {
-    "event_code": 2071,
-    "event_type_name": "Cancel RC (away)",
+    "action_code": 2071,
+    "action_type": "Cancel RC (away)",
     "category": "Disciplinary",
     "description": "Red card for away team cancelled.",
     "python_detection": "detail.startswith(\"Cancel RC   \") and away_team in detail",
@@ -1468,8 +1468,8 @@
     ]
   },
   {
-    "event_code": 2072,
-    "event_type_name": "Cancel YC (away)",
+    "action_code": 2072,
+    "action_type": "Cancel YC (away)",
     "category": "Disciplinary",
     "description": "Yellow card for away team cancelled.",
     "python_detection": "detail.startswith(\"Cancel YC   \") and away_team in detail",
@@ -1482,8 +1482,8 @@
     ]
   },
   {
-    "event_code": 2074,
-    "event_type_name": "Cancel CR (away)",
+    "action_code": 2074,
+    "action_type": "Cancel CR (away)",
     "category": "Set pieces",
     "description": "Corner for away team cancelled.",
     "python_detection": "detail.startswith(\"Cancel CR   \") and away_team in detail",
@@ -1493,8 +1493,8 @@
     ]
   },
   {
-    "event_code": 2075,
-    "event_type_name": "Safe (away)",
+    "action_code": 2075,
+    "action_type": "Safe (away)",
     "category": "Ball tracking",
     "description": "Ball in safe/non-threatening area for away team.",
     "python_detection": "detail.startswith(\"Safe   \") and away_team in detail",
@@ -1507,8 +1507,8 @@
     ]
   },
   {
-    "event_code": 2076,
-    "event_type_name": "Danger (away)",
+    "action_code": 2076,
+    "action_type": "Danger (away)",
     "category": "Danger signals",
     "description": "General danger signal for away team.",
     "python_detection": "detail.startswith(\"Danger   \") and away_team in detail",
@@ -1521,8 +1521,8 @@
     ]
   },
   {
-    "event_code": 2077,
-    "event_type_name": "GK (away)",
+    "action_code": 2077,
+    "action_type": "GK (away)",
     "category": "Set pieces",
     "description": "Goal kick for away team.",
     "python_detection": "detail.startswith(\"GK   \") and away_team in detail",
@@ -1535,8 +1535,8 @@
     ]
   },
   {
-    "event_code": 2078,
-    "event_type_name": "TI (away)",
+    "action_code": 2078,
+    "action_type": "TI (away)",
     "category": "Set pieces",
     "description": "Throw-in for away team.",
     "python_detection": "detail.startswith(\"TI   \") and away_team in detail",
@@ -1549,8 +1549,8 @@
     ]
   },
   {
-    "event_code": 2079,
-    "event_type_name": "SUB confirmed (away)",
+    "action_code": 2079,
+    "action_type": "SUB confirmed (away)",
     "category": "Substitution",
     "description": "Confirmed away team substitution with player details.",
     "python_detection": "detail.startswith(\"SUB   \") and away_team in detail",
@@ -1563,8 +1563,8 @@
     ]
   },
   {
-    "event_code": 2082,
-    "event_type_name": "BLOCK (away)",
+    "action_code": 2082,
+    "action_type": "BLOCK (away)",
     "category": "Shots",
     "description": "Shot blocked, away team; with pitch zone.",
     "python_detection": "detail.startswith(\"BLOCK   \") and away_team in detail",
@@ -1577,8 +1577,8 @@
     ]
   },
   {
-    "event_code": 2084,
-    "event_type_name": "PEN missed (away)",
+    "action_code": 2084,
+    "action_type": "PEN missed (away)",
     "category": "Penalty",
     "description": "Away team penalty kick missed.",
     "python_detection": "detail.startswith(\"PEN missed   \") and away_team in detail",
@@ -1589,8 +1589,8 @@
     ]
   },
   {
-    "event_code": 2086,
-    "event_type_name": "Possible PEN (away)",
+    "action_code": 2086,
+    "action_type": "Possible PEN (away)",
     "category": "Penalty",
     "description": "Potential penalty situation for away team.",
     "python_detection": "detail.startswith(\"Possible PEN   \") and away_team in detail",
@@ -1603,8 +1603,8 @@
     ]
   },
   {
-    "event_code": 2088,
-    "event_type_name": "BA (away)",
+    "action_code": 2088,
+    "action_type": "BA (away)",
     "category": "Ball tracking",
     "description": "Breakaway/counter-attack for away team.",
     "python_detection": "detail.startswith(\"BA   \") and away_team in detail",
@@ -1617,8 +1617,8 @@
     ]
   },
   {
-    "event_code": 2089,
-    "event_type_name": "Goal Conf (away)",
+    "action_code": 2089,
+    "action_type": "Goal Conf (away)",
     "category": "Goals",
     "description": "Goal confirmation signal for away team.",
     "python_detection": "detail.startswith(\"Goal Conf   \") and away_team in detail",
@@ -1631,8 +1631,8 @@
     ]
   },
   {
-    "event_code": 2090,
-    "event_type_name": "Possible CR (away)",
+    "action_code": 2090,
+    "action_type": "Possible CR (away)",
     "category": "Set pieces",
     "description": "Possible corner kick for away team.",
     "python_detection": "detail.startswith(\"Possible CR   \") and away_team in detail",
@@ -1645,8 +1645,8 @@
     ]
   },
   {
-    "event_code": 2091,
-    "event_type_name": "No CR (away)",
+    "action_code": 2091,
+    "action_type": "No CR (away)",
     "category": "Set pieces",
     "description": "Possible corner for away team not awarded.",
     "python_detection": "detail.startswith(\"No CR   \") and away_team in detail",
@@ -1659,8 +1659,8 @@
     ]
   },
   {
-    "event_code": 2092,
-    "event_type_name": "YC confirmed (away)",
+    "action_code": 2092,
+    "action_type": "YC confirmed (away)",
     "category": "Disciplinary",
     "description": "Yellow card officially confirmed for away team.",
     "python_detection": "detail.startswith(\"YC confirmed   \") and away_team in detail",
@@ -1673,8 +1673,8 @@
     ]
   },
   {
-    "event_code": 2093,
-    "event_type_name": "YC/RC confirmed (away)",
+    "action_code": 2093,
+    "action_type": "YC/RC confirmed (away)",
     "category": "Disciplinary",
     "description": "Second yellow / yellow-red confirmed for away team.",
     "python_detection": "detail.startswith(\"YC/RC confirmed   \") and away_team in detail",
@@ -1686,8 +1686,8 @@
     ]
   },
   {
-    "event_code": 2094,
-    "event_type_name": "RC confirmed (away)",
+    "action_code": 2094,
+    "action_type": "RC confirmed (away)",
     "category": "Disciplinary",
     "description": "Red card officially confirmed for away team.",
     "python_detection": "detail.startswith(\"RC confirmed   \") and away_team in detail",
@@ -1700,8 +1700,8 @@
     ]
   },
   {
-    "event_code": 2095,
-    "event_type_name": "Possible FK (away)",
+    "action_code": 2095,
+    "action_type": "Possible FK (away)",
     "category": "Set pieces",
     "description": "Possible free kick for away team.",
     "python_detection": "detail.startswith(\"Possible FK   \") and away_team in detail",
@@ -1714,8 +1714,8 @@
     ]
   },
   {
-    "event_code": 2097,
-    "event_type_name": "Possible TI (away)",
+    "action_code": 2097,
+    "action_type": "Possible TI (away)",
     "category": "Set pieces",
     "description": "Possible throw-in for away team.",
     "python_detection": "detail.startswith(\"Possible TI   \") and away_team in detail",
@@ -1728,8 +1728,8 @@
     ]
   },
   {
-    "event_code": 2098,
-    "event_type_name": "Safe directional (away)",
+    "action_code": 2098,
+    "action_type": "Safe directional (away)",
     "category": "Ball tracking",
     "description": "Ball in safe zone for away team with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Safe (Center|Left|Right)   \", detail) and away_team in detail",
@@ -1742,8 +1742,8 @@
     ]
   },
   {
-    "event_code": 2099,
-    "event_type_name": "Attack directional (away)",
+    "action_code": 2099,
+    "action_type": "Attack directional (away)",
     "category": "Ball tracking",
     "description": "Away team attack with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Attack (Center|Left|Right)   \", detail) and away_team in detail",
@@ -1756,8 +1756,8 @@
     ]
   },
   {
-    "event_code": 2100,
-    "event_type_name": "Danger directional (away)",
+    "action_code": 2100,
+    "action_type": "Danger directional (away)",
     "category": "Danger signals",
     "description": "Away team danger with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Danger (Center|Left|Right)   \", detail) and away_team in detail",
@@ -1770,8 +1770,8 @@
     ]
   },
   {
-    "event_code": 2101,
-    "event_type_name": "Breakaway directional (away)",
+    "action_code": 2101,
+    "action_type": "Breakaway directional (away)",
     "category": "Ball tracking",
     "description": "Away team breakaway with direction (Center/Left/Right).",
     "python_detection": "re.match(r\"Breakaway (Center|Left|Right)   \", detail) and away_team in detail",
@@ -1784,8 +1784,8 @@
     ]
   },
   {
-    "event_code": 2104,
-    "event_type_name": "Player injured (away)",
+    "action_code": 2104,
+    "action_type": "Player injured (away)",
     "category": "Match flow",
     "description": "Away team player injury notification.",
     "python_detection": "detail.startswith(\"Player injured   \") and away_team in detail",
